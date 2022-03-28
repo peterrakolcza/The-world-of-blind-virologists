@@ -1,9 +1,17 @@
 import java.util.ArrayList;
 
+/**
+ * Mező ahol a virológus anyaghoz tud jutni
+ * @attribute aminoacid - a tárolt aminoacidok mennyisége
+ * @attribute nucleotid - a tárolt nucleotidok mennyisége
+ */
 public class Storage extends Field {
 
     private int aminoacid, nucleotid;
 
+    /**
+     * A virológus felveszi a tárolt anyagot.
+     */
     @Override
     public void Action() {
         super.Action();
@@ -14,6 +22,11 @@ public class Storage extends Field {
         // actionje
     }
 
+    /**
+     * Konstruktor
+     * @param aminoacid - a tárolt aminoacidok mennyisége
+     * @param nucleotid - a tárolt nucleotidok mennyisége
+     */
     public Storage(int aminoacid, int nucleotid) {
         this.aminoacid = aminoacid;
         this.nucleotid = nucleotid;

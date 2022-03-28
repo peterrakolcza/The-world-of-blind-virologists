@@ -1,5 +1,12 @@
+/**
+ * A Root ágens genetikai kódja.
+ */
 public class RootCode extends GeneticCode {
 
+    /**
+     * Létrehoz egy Root ágenst, majd hozzaadja a virologushoz aki letrehozta.
+     * @param v virologist aki leolvasta a falról
+     */
     @Override
     public void create(Virologist v) {
         final int amino = 1;

@@ -1,5 +1,11 @@
+/**
+ * Felszerelest leiro ososztaly.
+ */
 public abstract class Equipment {
 
-    public void taken(Virologist by) {
-    };
+    /**
+     * Hozzárendeli a felszerelest egy virologushoz.
+     * @param by - virologus akié lesz a felszerelés
+     */
+    public void taken(Virologist by) {};
 }

@@ -1,6 +1,14 @@
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * Ez az osztály reprezentálja a virológusokat (játékosokat) a játékban.
+ * A virológus mozog a pálya mezőin, feladata, hogy elsőként megtanulja az összes ágenstípushoz tartozó
+ * genetikai kódokat, vándorlása során lehetősége van anyagot gyűjteni, amiből ágenseket készíthet a
+ * kódok alapján. Az ágenseket magukra vagy másokra kenhetik védelem, illetve támadás céljából.
+ * Bizonyos mezőkön védőfelszerelést vehet magához, amiknek különböző hatásuk van. Ha le van bénulva a virológus,
+ * más játékos megfoszthatja őt az anyaggyűjteményétől, illetve felszerelésétől.
+ */
 public class Virologist {
 
     /** A vedettseget hatasfokat jelzo double ertek */
@@ -102,10 +110,12 @@ public class Virologist {
         this.rooted = true;
     }
 
+    /** A virologus veletlendszeruen fog mozogni */
     public void MoveRandomly() {
         this.randommoves = true;
     }
 
+    /** A virologus mozog a mezok kozott marad */
     public void Move(Field next) {
         /**
          * Ellenorzese annak hogy a virologus tud e mozogni a parameterkent megkapott

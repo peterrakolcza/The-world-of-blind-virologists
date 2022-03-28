@@ -3,15 +3,23 @@ import java.util.ArrayList;
 /**
  * A felszereleseket tartalmazo mezon ahonnan felveheti oket egy ilyen mezore
  * lepo virologus
+ * @attribute equipment - a felszerelesek listaja
  */
 public class Shelter extends Field {
 
     private ArrayList<Equipment> equipment;
 
+    /**
+     * Eltávólit egy felszerelést
+     * @param e - a felszereles
+     */
     public void RemoveEquipment(Equipment e) {
         equipment.remove(e);
     }
 
+    /**
+     * A virolügus felveszi a felszerelést
+     */
     @Override
     public void Action() {
         super.Action();
@@ -27,6 +35,10 @@ public class Shelter extends Field {
         }
     }
 
+    /**
+     * A felszerelesek listaja
+     * @return - a felszerelesek listaja
+     */
     public Equipment GetEquipment() {
         if (!equipment.isEmpty())
             return equipment.get(0);

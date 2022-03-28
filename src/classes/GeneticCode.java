@@ -1,5 +1,12 @@
+/**
+ * Reprezentálja a genetikai kódokat
+ */
 public abstract class GeneticCode {
 
+    /**
+     * Létrehoz egy genetikai kódot
+     * @param v virologist aki leolvasta a falról
+     */
     public abstract void create(Virologist v);
 
 }
