@@ -1,14 +1,13 @@
 
-
 public class Protect extends Agent {
 
     public Protect(int aminoacid, int nucleotid) {
         super(aminoacid, nucleotid);
-        //TODO Auto-generated constructor stub
+        // TODO Auto-generated constructor stub
     }
 
     @Override
-    public void AgentEffect() {
-        //agenteffect
+    public void AgentEffect(Virologist target) {
+        target.setProtection(1);
     }
 }

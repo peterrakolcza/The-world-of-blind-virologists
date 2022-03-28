@@ -6,6 +6,6 @@ public class ProtectCode extends GeneticCode {
         final int nucleo = 2;
         Protect protect = new Protect(amino, nucleo);
         v.AddAgent(protect);
-        
+
     }
 }

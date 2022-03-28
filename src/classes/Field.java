@@ -5,12 +5,10 @@ public class Field {
     protected ArrayList<Virologist> virologists;
     protected ArrayList<Field> neighbours;
 
-    public Field()
-    {
-        virologists=new ArrayList<Virologist>();
-        neighbours=new ArrayList<Field>();
+    public Field() {
+        virologists = new ArrayList<Virologist>();
+        neighbours = new ArrayList<Field>();
     }
-
 
     public void Add(Virologist v) {
         virologists.add(v);
@@ -29,6 +27,6 @@ public class Field {
     }
 
     public void Action() {
-        //action
+        // action
     }
 }

@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Storage extends Field{
+public class Storage extends Field {
 
     private int aminoacid, nucleotid;
 
@@ -9,16 +9,15 @@ public class Storage extends Field{
         super.Action();
 
         for (int i = 0; i < virologists.size(); i++) {
-            virologists.get(i).pickUp(aminoacid,nucleotid);
+            virologists.get(i).pickUp(aminoacid, nucleotid);
         }
-        //actionje
+        // actionje
     }
 
-    public Storage(int aminoacid,int nucleotid)
-    {
-        this.aminoacid=aminoacid;
-        this.nucleotid=nucleotid;
-        virologists=new ArrayList<Virologist>();
-        neighbours=new ArrayList<Field>();
+    public Storage(int aminoacid, int nucleotid) {
+        this.aminoacid = aminoacid;
+        this.nucleotid = nucleotid;
+        virologists = new ArrayList<Virologist>();
+        neighbours = new ArrayList<Field>();
     }
 }

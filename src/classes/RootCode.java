@@ -6,6 +6,6 @@ public class RootCode extends GeneticCode {
         final int nucleo = 2;
         Root root = new Root(amino, nucleo);
         v.AddAgent(root);
-        
+
     }
 }

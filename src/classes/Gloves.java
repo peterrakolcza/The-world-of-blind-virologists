@@ -1,6 +1,6 @@
-public class Gloves extends Equipment{
+public class Gloves extends Equipment {
     @Override
     public void taken(Virologist by) {
-        by.HasGloves();
+        by.setHasGloves(true);
     }
 }
