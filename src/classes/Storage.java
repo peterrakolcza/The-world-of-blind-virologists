@@ -33,4 +33,24 @@ public class Storage extends Field {
         virologists = new ArrayList<Virologist>();
         neighbours = new ArrayList<Field>();
     }
+
+    public int getAmino()
+    {
+        return aminoacid;
+    }
+
+    public int getNucleotid()
+    {
+        return nucleotid;
+    }
+
+    public void SetAmino()
+    {
+        this.aminoacid=0;
+    }
+
+    public void SetNucleo()
+    {
+        this.nucleotid=0;
+    }
 }

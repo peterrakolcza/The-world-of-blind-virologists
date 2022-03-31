@@ -14,7 +14,8 @@ public class Virologist {
     /** A vedettseget hatasfokat jelzo double ertek */
     private double protection = 0;
 
-    private boolean hasGloves = false, randommoves = false, rooted = false;
+    private boolean  randommoves = false, rooted = false;
+    private Gloves glove;
 
     /** A virologus anyag fajtai es a megengedheto maximum ertekuk */
     private int aminoacid, nucleotid, maxAmount;
@@ -29,9 +30,9 @@ public class Virologist {
     private ArrayList<Equipment> equipment;
 
     /** Parameteres konstruktora a virologusnak */
-    public Virologist(double protection, boolean hasGloves, int aminoacid, int nucleotid, int maxamout) {
+    public Virologist(double protection, Gloves glove, int aminoacid, int nucleotid, int maxamout) {
         this.protection = protection;
-        this.hasGloves = hasGloves;
+        this.glove = glove;
         this.aminoacid = aminoacid;
         this.nucleotid = nucleotid;
         this.maxAmount = maxamout;
@@ -47,9 +48,16 @@ public class Virologist {
         this.protection = protection;
     }
 
+    public Agent GetSpecificAgent(int i)
+    {
+        return this.agents.get(i);
+    }
+
     public void setField(Field f) {
         this.onField = f;
     }
+
+    public Field getField(){return this.onField;}
 
     public int getAmino() {
         return aminoacid;
@@ -67,16 +75,23 @@ public class Virologist {
         this.maxAmount = val;
     }
 
-    public void setHasGloves(boolean input) {
-        this.hasGloves = input;
+    public void setHasGloves(Gloves input) {
+        this.glove = input;
     }
 
-    public boolean isProtected(int randomNumber) {
-        return randomNumber < protection;
+    /**
+     * Itt azt változtattam, hogy ha a védettség nagyobb mint 82% vagy van glove-ja, amelyiknek a lifetimeja nem 0.
+     * */
+    public boolean isProtected() {
+        return 0.823 < protection || this.glove.lifetime>0;
     }
 
     public boolean HasGloves() {
-        return hasGloves;
+        if(glove.lifetime>0)
+        {
+            return true;
+        }
+        return false;
     }
 
     public ArrayList<GeneticCode> getKnownCodes() {
@@ -92,8 +107,13 @@ public class Virologist {
 
     public void UseAgent(Agent a, Virologist v) {
         Random r = new Random();
-        if (onField.GetVirologists().contains(v) && (this.agents.contains(a) && !v.HasGloves() && v.isProtected(r.nextInt(101)))) {
+        if (onField.GetVirologists().contains(v) && (this.agents.contains(a) && !v.HasGloves() && v.isProtected()==false)) {
             a.AgentEffect(v);
+        }
+        else if(v.HasGloves()==true)
+        {
+            this.glove.lifetime=glove.lifetime-1;
+            System.out.println("Csokkent eggyel a kesztyu lifetime-ja!");
         }
     }
 

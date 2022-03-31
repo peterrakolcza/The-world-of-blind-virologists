@@ -26,5 +26,9 @@ public abstract class Agent {
         this.nucleotid = nucleotid;
     }
 
+    public void Contact(Virologist target)
+    {
+    }
+
     public Agent() {};
 }

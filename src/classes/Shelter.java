@@ -35,6 +35,8 @@ public class Shelter extends Field {
         }
     }
 
+
+
     /**
      * A felszerelesek listaja
      * @return - a felszerelesek listaja

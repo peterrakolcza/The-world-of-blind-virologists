@@ -18,6 +18,26 @@ public class Field {
         neighbours = new ArrayList<Field>();
     }
 
+    public int getAmino()
+    {
+        return 0;
+    }
+
+    public int getNucleotid()
+    {
+        return 0;
+    }
+
+    public void SetAmino()
+    {
+
+    }
+
+    public void SetNucleo()
+    {
+
+    }
+
     /**
      * Hozzáad egy virologust a mezőhöz
      * @param v - virologus akit hozzáadni akarunk

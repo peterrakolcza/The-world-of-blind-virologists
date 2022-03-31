@@ -8,4 +8,8 @@ public abstract class Equipment {
      * @param by - virologus akié lesz a felszerelés
      */
     public void taken(Virologist by) {};
+
+    public Equipment(){};
+
+
 }
