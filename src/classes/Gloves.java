@@ -2,7 +2,7 @@
  * védőfelszerelés amely az ágenseket 82,3%-os hatásfokkal tartja távol
  */
 public class Gloves extends Equipment {
-    int lifetime=0;
+    int lifetime;
     /**
      * @param by - virologus akié lesz a felszerelés
      */
@@ -17,5 +17,8 @@ public class Gloves extends Equipment {
         this.lifetime=3;
     }
 
+    public void reduceLifeTime() {
+        lifetime--;
+    }
 
 }

@@ -16,6 +16,7 @@ public class Virologist {
 
     private boolean  randommoves = false, rooted = false;
     private Gloves glove;
+    private boolean hasActiveAx = false;
 
     /** A virologus anyag fajtai es a megengedheto maximum ertekuk */
     private int aminoacid, nucleotid, maxAmount;
@@ -41,6 +42,7 @@ public class Virologist {
         agents = new ArrayList<Agent>();
         equipment = new ArrayList<Equipment>();
         knownCodes = new ArrayList<GeneticCode>();
+        hasActiveAx = false;
 
     }
 
@@ -78,6 +80,9 @@ public class Virologist {
     public void setHasGloves(Gloves input) {
         this.glove = input;
     }
+    public void setHasActiveAx(boolean val) {
+        this.hasActiveAx = val;
+    }
 
     /**
      * Itt azt változtattam, hogy ha a védettség nagyobb mint 82% vagy van glove-ja, amelyiknek a lifetimeja nem 0.
@@ -93,6 +98,8 @@ public class Virologist {
         }
         return false;
     }
+
+
 
     public ArrayList<GeneticCode> getKnownCodes() {
         return knownCodes;

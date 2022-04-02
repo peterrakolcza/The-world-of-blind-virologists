@@ -1,7 +1,8 @@
+
 public class BearCode extends GeneticCode
 {
     public BearCode() {
-    };
+    }
 
     /**
      * Létrehoz egy új ágenst majd hozzaadja a virologushoz aki letrehozta.
