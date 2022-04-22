@@ -1,5 +1,7 @@
+package businesslogic;
+
 /**
- * Reprezentálja a játékban található ágenseknek, ősosztálya a Dance, Forget, Protect és Root osztályoknak.
+ * Reprezentálja a játékban található ágenseknek, ősosztálya a businesslogic.Dance, businesslogic.Forget, businesslogic.Protect és businesslogic.Root osztályoknak.
  * @attribute aminoacid - ennyi aminoacidba kerül
  * @attribute nucleotid - ennyi nucleotidba kerül
  */

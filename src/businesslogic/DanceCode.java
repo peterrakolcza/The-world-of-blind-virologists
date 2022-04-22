@@ -1,5 +1,7 @@
+package businesslogic;
+
 /**
- * Dance agens genetikai kodja.
+ * businesslogic.Dance agens genetikai kodja.
  */
 public class DanceCode extends GeneticCode {
 

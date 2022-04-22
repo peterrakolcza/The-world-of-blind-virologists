@@ -1,10 +1,12 @@
+package businesslogic;
+
 /**
- * A Root ágens genetikai kódja.
+ * A businesslogic.Root ágens genetikai kódja.
  */
 public class RootCode extends GeneticCode {
 
     /**
-     * Létrehoz egy Root ágenst, majd hozzaadja a virologushoz aki letrehozta.
+     * Létrehoz egy businesslogic.Root ágenst, majd hozzaadja a virologushoz aki letrehozta.
      * @param v virologist aki leolvasta a falról
      */
     @Override

@@ -1,3 +1,5 @@
+package businesslogic;
+
 /**
  * Reprezentálja a genetikai kódokat
  */

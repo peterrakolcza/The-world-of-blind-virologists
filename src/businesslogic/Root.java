@@ -1,5 +1,7 @@
+package businesslogic;
+
 /**
- * Root ágenst reprezentálja, ami cselekvésképtelenné teszi a virológust 1 körig
+ * businesslogic.Root ágenst reprezentálja, ami cselekvésképtelenné teszi a virológust 1 körig
  */
 public class Root extends Agent {
 

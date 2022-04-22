@@ -1,3 +1,5 @@
+package businesslogic;
+
 /**
  * védőfelszerelés amellyel megölhető a medve
  */

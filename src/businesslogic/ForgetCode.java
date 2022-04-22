@@ -1,10 +1,12 @@
+package businesslogic;
+
 /**
- * Forget ágens genetikai kódja.
+ * businesslogic.Forget ágens genetikai kódja.
  */
 public class ForgetCode extends GeneticCode {
 
     /**
-     * Létrehoz egy Forget ágenst, majd hozzaadja a virologushoz aki letrehozta.
+     * Létrehoz egy businesslogic.Forget ágenst, majd hozzaadja a virologushoz aki letrehozta.
      * @param v virologist aki leolvasta a falról
      */
     @Override

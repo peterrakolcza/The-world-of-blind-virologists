@@ -1,3 +1,5 @@
+package businesslogic;
+
 /**
  * Felszerelest leiro ososztaly.
  */

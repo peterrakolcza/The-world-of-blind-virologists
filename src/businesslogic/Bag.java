@@ -1,3 +1,5 @@
+package businesslogic;
+
 /**
  * Védőfelszerelés ami megnöveli a virológus anyaggyűjtő képességét a kétszeresére
  */

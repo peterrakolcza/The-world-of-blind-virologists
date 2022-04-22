@@ -1,5 +1,7 @@
+package businesslogic;
+
 /**
- * Protect ágenst reprezentálja, ami védettséget biztosít a virológusnak.
+ * businesslogic.Protect ágenst reprezentálja, ami védettséget biztosít a virológusnak.
  */
 public class Protect extends Agent {
 

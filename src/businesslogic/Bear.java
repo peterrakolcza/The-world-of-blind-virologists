@@ -1,3 +1,5 @@
+package businesslogic;
+
 public class Bear extends Agent{
 
     public Bear(int amino,int nucleo)

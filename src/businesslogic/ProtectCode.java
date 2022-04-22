@@ -1,10 +1,12 @@
+package businesslogic;
+
 /**
  * A protect ágens genetikai kódja.
  */
 public class ProtectCode extends GeneticCode {
 
     /**
-     * Létrehoz egy Protect ágenst, majd hozzaadja a virologushoz aki letrehozta.
+     * Létrehoz egy businesslogic.Protect ágenst, majd hozzaadja a virologushoz aki letrehozta.
      * @param v virologist aki leolvasta a falról
      */
     @Override

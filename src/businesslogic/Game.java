@@ -1,3 +1,5 @@
+package businesslogic;
+
 /**
  * Kezeli az egész játékot. Létrehozza a szükséges elemeket, elindítja, majd ha valamelyik játékos nyert, befejezi a játékot.
  * @attribute single_instance a játék egyetlen példánya

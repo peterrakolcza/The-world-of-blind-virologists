@@ -1,5 +1,7 @@
+package businesslogic;
+
 /**
- * Dance agens.
+ * businesslogic.Dance agens.
  */
 public class Dance extends Agent {
 

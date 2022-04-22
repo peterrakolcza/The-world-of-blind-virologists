@@ -1,3 +1,5 @@
+package businesslogic;
+
 /**
  * védőfelszerelés amely az ágenseket 82,3%-os hatásfokkal tartja távol
  */

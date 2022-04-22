@@ -1,5 +1,7 @@
+package businesslogic;
+
 /**
- * Forget ágenst, amit ha egy virológusra kennek, akkor elfelejti az össze megtanult ágensét
+ * businesslogic.Forget ágenst, amit ha egy virológusra kennek, akkor elfelejti az össze megtanult ágensét
  */
 public class Forget extends Agent {
 

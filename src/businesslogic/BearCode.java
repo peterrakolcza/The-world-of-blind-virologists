@@ -1,3 +1,4 @@
+package businesslogic;
 
 public class BearCode extends GeneticCode
 {
