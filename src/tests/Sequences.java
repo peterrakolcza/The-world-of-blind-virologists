@@ -1,8 +1,11 @@
-package me.piedpiper.sequences;
+package tests;
 
-import me.piedpiper.businesslogic.*;
 import java.util.ArrayList;
 import java.util.Scanner;
+
+public class Sequences {
+    
+}
 
 public class Sequences {
 
@@ -20,7 +23,7 @@ public class Sequences {
     private int selectedScenario;
 
     public Sequences() {
-       Init();
+        Init();
     }
 
     public void Init(){
@@ -37,12 +40,12 @@ public class Sequences {
         this.orbitingObjects2 = ellipses.get(1).GetObjects();
         this.orbitingObjects3 = ellipses.get(2).GetObjects();
         this.scanner = new Scanner(System.in);
- 
+
         this.steppable.add(new Robot(this.base, this.asteroidField));
         this.steppable.add(new Robot(this.base, this.asteroidField));
         Logger.logOnConsole = true;
     }
-    
+
     public void SettlerMovesToTeleportGate() {
         Logger.tabcount = -1;
         System.out.println("Scenarios of settler moves to teleport gate:\n");
@@ -60,7 +63,7 @@ public class Sequences {
                 orbitingObjects1.get(0).AddNeighbor(t1);
                 Logger.logOnConsole = true;
                 Logger.logGetter = true;
-                settler.MoveTo(t1);   
+                settler.MoveTo(t1);
                 Logger.logGetter = false;
             }
             else{
@@ -71,7 +74,7 @@ public class Sequences {
                 Settler settler = new Settler(orbitingObjects1.get(0), asteroidField);
                 orbitingObjects1.get(0).AddNeighbor(t1);
                 Logger.logOnConsole = true;
-                settler.MoveTo(t1);   
+                settler.MoveTo(t1);
             }
             Init();
         }
@@ -172,8 +175,8 @@ public class Sequences {
                 Logger.logOnConsole = false;
                 Asteroid n = new Asteroid(new Point2D(0.0,0.0), ellipses.get(0), 3, null);
                 Settler settler = new Settler(orbitingObjects1.get(0), asteroidField);
-				settler.AddMaterialToBackpack(new Uran());
-				settler.AddMaterialToBackpack(new Iron());
+                settler.AddMaterialToBackpack(new Uran());
+                settler.AddMaterialToBackpack(new Iron());
                 settler.AddMaterialToBackpack(new Coal());
                 Logger.logOnConsole = true;
                 settler.BuildRobot();
@@ -181,7 +184,7 @@ public class Sequences {
             else{
                 Logger.logOnConsole = false;
                 Asteroid n = new Asteroid(new Point2D(0.0,0.0), ellipses.get(0), 3, null);
-				Settler settler = new Settler(orbitingObjects1.get(0), asteroidField);
+                Settler settler = new Settler(orbitingObjects1.get(0), asteroidField);
                 settler.AddMaterialToBackpack(new Iron());
                 settler.AddMaterialToBackpack(new Coal());
                 Logger.logOnConsole = true;
@@ -204,8 +207,8 @@ public class Sequences {
                 Logger.logOnConsole = false;
                 Asteroid n = new Asteroid(new Point2D(0.0,0.0), ellipses.get(0), 3, null);
                 Settler settler = new Settler(orbitingObjects1.get(0), asteroidField);
-				settler.AddMaterialToBackpack(new Uran());
-				settler.AddMaterialToBackpack(new Iron());
+                settler.AddMaterialToBackpack(new Uran());
+                settler.AddMaterialToBackpack(new Iron());
                 settler.AddMaterialToBackpack(new Iron());
                 settler.AddMaterialToBackpack(new Ice());
                 Logger.logOnConsole = true;
@@ -243,7 +246,7 @@ public class Sequences {
             Logger.logGetter=false;
             Logger.logSetter=false;
             Logger.logOnConsole = false;
-            Init();    
+            Init();
         }
         else
             System.out.println("Invalind scenario number");
@@ -280,8 +283,8 @@ public class Sequences {
             System.out.println("Invalind scenario number");
     }
 
-	public void SkipSettler() {
-		Logger.tabcount = -1;
+    public void SkipSettler() {
+        Logger.tabcount = -1;
         System.out.println("Scenarios of player skips settler:\n");
         System.out.println("1:Player skips settler");
         System.out.println("\nSelect scenario: ");
@@ -315,25 +318,25 @@ public class Sequences {
                 settler = new Settler(n, asteroidField);
                 Logger.logOnConsole = true;
                 settler.Mine();
-              break;
+                break;
             case 2:
                 Logger.logOnConsole = false;
                 n = new Asteroid(new Point2D(0.0,0.0), ellipses.get(0), 0, null);
                 settler = new Settler(n, asteroidField);
                 Logger.logOnConsole = true;
                 settler.Mine();
-              break;
+                break;
             case 3:
                 Logger.logOnConsole = false;
                 n = new Asteroid(new Point2D(0.0,0.0), ellipses.get(0), 3, new Iron());
                 settler = new Settler(n, asteroidField);
                 Logger.logOnConsole = true;
                 settler.Mine();
-            break;
+                break;
             default:
                 System.out.println("Invalind scenario number");
-          }
-          Init();
+        }
+        Init();
     }
 
     public void SettlerDrillsAsteroid() {
@@ -346,46 +349,46 @@ public class Sequences {
         selectedScenario = scanner.nextInt();
         if(selectedScenario > 0 && selectedScenario < 4) {
             Logger.logOnConsole = false;
-			if (selectedScenario == 1) {
+            if (selectedScenario == 1) {
                 Asteroid a = new Asteroid(new Point2D(0.0,0.0), ellipses.get(0), 2, null);
-				Settler settler = new Settler(orbitingObjects1.get(0), asteroidField);
-				Logger.logOnConsole = true;
+                Settler settler = new Settler(orbitingObjects1.get(0), asteroidField);
+                Logger.logOnConsole = true;
                 settler.DrillHole();
             } else if(selectedScenario==2){
                 Asteroid a = new Asteroid(new Point2D(0.0,0.0), ellipses.get(0), 0, null);
-				Settler settler = new Settler(orbitingObjects1.get(0), asteroidField);
+                Settler settler = new Settler(orbitingObjects1.get(0), asteroidField);
                 Logger.logOnConsole = true;
                 settler.DrillHole();
-			} else if(selectedScenario==3) {
-			    Asteroid a = new Asteroid(new Point2D(0.0,0.0), ellipses.get(0), 1, new Uran());
-				Settler settler = new Settler(orbitingObjects1.get(0), asteroidField);
+            } else if(selectedScenario==3) {
+                Asteroid a = new Asteroid(new Point2D(0.0,0.0), ellipses.get(0), 1, new Uran());
+                Settler settler = new Settler(orbitingObjects1.get(0), asteroidField);
                 settler.SetLocation(a);
-				a.SetCloseToSun(true);
+                a.SetCloseToSun(true);
                 Logger.logOnConsole = true;
                 settler.DrillHole();
-            
+
             }
-			Init();
+            Init();
         }
         else
             System.out.println("Invalind scenario number");
     }
-    
+
     interface MoveAction {
         void move();
     }
 
     private MoveAction[] moveActions = new MoveAction[] {
-        new MoveAction() { public void move() { SettlerMovesToTeleportGate(); } },
-        new MoveAction() { public void move() { SettlerPlacesMaterialOnAsteroid(); } },
-        new MoveAction() { public void move() { SettlerPlacesMaterialOnBaseAsteroid(); } },
-        new MoveAction() { public void move() { SettlerBuildsRobot(); } },
-        new MoveAction() { public void move() { SettlerCraftsGate(); } },
-        new MoveAction() { public void move() { SettlerPlacesGate(); } },
-        new MoveAction() { public void move() { SettlerMovesToAsteroid(); } },
-        new MoveAction() { public void move() { SkipSettler(); } },
-        new MoveAction() { public void move() { SettlerMinesAsteroid(); } },
-        new MoveAction() { public void move() { SettlerDrillsAsteroid(); } },
+            new MoveAction() { public void move() { SettlerMovesToTeleportGate(); } },
+            new MoveAction() { public void move() { SettlerPlacesMaterialOnAsteroid(); } },
+            new MoveAction() { public void move() { SettlerPlacesMaterialOnBaseAsteroid(); } },
+            new MoveAction() { public void move() { SettlerBuildsRobot(); } },
+            new MoveAction() { public void move() { SettlerCraftsGate(); } },
+            new MoveAction() { public void move() { SettlerPlacesGate(); } },
+            new MoveAction() { public void move() { SettlerMovesToAsteroid(); } },
+            new MoveAction() { public void move() { SkipSettler(); } },
+            new MoveAction() { public void move() { SettlerMinesAsteroid(); } },
+            new MoveAction() { public void move() { SettlerDrillsAsteroid(); } },
     };
 
     static private void printMenuItems() {
@@ -405,10 +408,10 @@ public class Sequences {
 
     public static void main(String[] args) {
         Sequences sequences = new Sequences();
-        
+
         Scanner input = new Scanner(System.in);
         int index = 0;
-        
+
         while(true){
             printMenuItems();
             System.out.println("\n\nSelect sequence: ");
@@ -426,3 +429,4 @@ public class Sequences {
         input.close();
     }
 }
+
