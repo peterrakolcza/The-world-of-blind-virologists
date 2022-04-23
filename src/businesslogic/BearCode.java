@@ -13,7 +13,7 @@ public class BearCode extends GeneticCode
     public void create(Virologist v) {
         final int amino = 0;
         final int nucleo = 0;
-        Bear bear = new Bear(amino, nucleo);
+        Bear bear = new Bear();
         v.AddAgent(bear);
     }
 }

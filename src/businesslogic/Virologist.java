@@ -2,6 +2,7 @@ package businesslogic;
 
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.UUID;
 
 /**
  * Ez az osztály reprezentálja a virológusokat (játékosokat) a játékban.
@@ -14,6 +15,8 @@ import java.util.Random;
 public class Virologist {
 
     /** A vedettseget hatasfokat jelzo double ertek */
+    private String activeVirologist;
+
     private double protection = 0;
 
     private boolean  randommoves = false, rooted = false;
@@ -33,7 +36,9 @@ public class Virologist {
     private ArrayList<Equipment> equipment;
 
     /** Parameteres konstruktora a virologusnak */
-    public Virologist(double protection, Gloves glove, int aminoacid, int nucleotid, int maxamout) {
+    public Virologist(double protection, Gloves glove, int aminoacid, int nucleotid, int maxamout,int id) {
+
+        this.activeVirologist="Virologist"+id;
         this.protection = protection;
         this.glove = glove;
         this.aminoacid = aminoacid;
@@ -90,11 +95,11 @@ public class Virologist {
      * Itt azt változtattam, hogy ha a védettség nagyobb mint 82% vagy van glove-ja, amelyiknek a lifetimeja nem 0.
      * */
     public boolean isProtected() {
-        return 0.823 < protection || this.glove.lifetime>0;
+        return 0.823 < protection || this.glove.EffectTime>0;
     }
 
     public boolean HasGloves() {
-        if(glove.lifetime>0)
+        if(glove.EffectTime>0)
         {
             return true;
         }
@@ -121,7 +126,7 @@ public class Virologist {
         }
         else if(v.HasGloves()==true)
         {
-            this.glove.lifetime=glove.lifetime-1;
+            this.glove.EffectTime=glove.EffectTime-1;
             System.out.println("Csokkent eggyel a kesztyu lifetime-ja!");
         }
     }

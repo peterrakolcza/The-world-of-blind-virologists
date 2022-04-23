@@ -13,7 +13,7 @@ public class RootCode extends GeneticCode {
     public void create(Virologist v) {
         final int amino = 1;
         final int nucleo = 2;
-        Root root = new Root(amino, nucleo);
+        Root root = new Root();
         v.AddAgent(root);
 
     }

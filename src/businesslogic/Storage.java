@@ -29,7 +29,8 @@ public class Storage extends Field {
      * @param aminoacid - a tárolt aminoacidok mennyisége
      * @param nucleotid - a tárolt nucleotidok mennyisége
      */
-    public Storage(int aminoacid, int nucleotid) {
+    public Storage(int aminoacid, int nucleotid,int num) {
+        super(num);
         this.aminoacid = aminoacid;
         this.nucleotid = nucleotid;
         virologists = new ArrayList<Virologist>();

@@ -4,7 +4,7 @@ package businesslogic;
  * védőfelszerelés amely az ágenseket 82,3%-os hatásfokkal tartja távol
  */
 public class Gloves extends Equipment {
-    int lifetime;
+    int EffectTime;
     /**
      * @param by - virologus akié lesz a felszerelés
      */
@@ -16,11 +16,16 @@ public class Gloves extends Equipment {
     public Gloves()
     {
         super();
-        this.lifetime=3;
+        this.EffectTime=3;
+    }
+
+    public void SetEffectTime(int num)
+    {
+        this.EffectTime=num;
     }
 
     public void reduceLifeTime() {
-        lifetime--;
+        EffectTime--;
     }
 
 }

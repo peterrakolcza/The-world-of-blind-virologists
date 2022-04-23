@@ -2,9 +2,12 @@ package businesslogic;
 
 public class Bear extends Agent{
 
-    public Bear(int amino,int nucleo)
+    public Bear()
     {
-        super(amino,nucleo);
+        super();
+        this.aminoacid=0;
+        this.nucleotid=0;
+        this.name="Bear";
 
     }
 

@@ -25,7 +25,7 @@ public class Laboratory extends Field {
             for (int i = 0; i < virologists.size(); i++) {
                 virologists.get(i).MoveRandomly();
                 virologists.get(i).AddCode(code);
-                Bear bear=new Bear(0,0);
+                Bear bear=new Bear();
                 virologists.get(i).AddAgent(bear);
                 System.out.println("A virologus megfertozodott a bear virussal!");
                 map.checkIfGameIsOver(virologists.get(i).getKnownCodes());
@@ -45,7 +45,8 @@ public class Laboratory extends Field {
      * Konstruktor
      * @param code - a laborban megtalálható kód
      */
-    public Laboratory(GeneticCode code) {
+    public Laboratory(GeneticCode code,int num) {
+        super(num);
         this.code = code;
         virologists = new ArrayList<Virologist>();
         neighbours = new ArrayList<Field>();

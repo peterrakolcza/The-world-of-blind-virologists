@@ -11,6 +11,11 @@ public class Shelter extends Field {
 
     private ArrayList<Equipment> equipment;
 
+    public Shelter(int num)
+    {
+        super(num);
+    }
+
     /**
      * Eltávólit egy felszerelést
      * @param e - a felszereles

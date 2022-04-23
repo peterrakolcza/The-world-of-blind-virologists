@@ -7,6 +7,7 @@ package businesslogic;
  */
 public abstract class Agent {
 
+    protected String name;
     protected int aminoacid, nucleotid;
 
     /**
@@ -16,21 +17,14 @@ public abstract class Agent {
      */
     public abstract void AgentEffect(Virologist target);
 
-    /**
-     * A konstruktor.
-     *
-     * @param aminoacid
-     * @param nucleotid
-     */
-    public Agent(int aminoacid,int nucleotid)
+
+    public Agent()
     {
-        this.aminoacid = aminoacid;
-        this.nucleotid = nucleotid;
+
     }
 
     public void Contact(Virologist target)
     {
     }
 
-    public Agent() {};
 }

@@ -5,13 +5,12 @@ package businesslogic;
  */
 public class Root extends Agent {
 
-    /**
-     * Beállítja, hogy mennyi anyagba kerül a létrehozása
-     * @param aminoacid
-     * @param nucleotid
-     */
-    public Root(int aminoacid, int nucleotid) {
-        super(aminoacid, nucleotid);
+
+    public Root() {
+        super();
+        this.name="Root";
+        this.aminoacid=3;
+        this.nucleotid=2;
         // TODO Auto-generated constructor stub
     }
 

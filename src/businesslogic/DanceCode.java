@@ -20,7 +20,7 @@ public class DanceCode extends GeneticCode {
     public void create(Virologist v) {
         final int amino = 5;
         final int nucleo = 4;
-        Dance dance = new Dance(amino, nucleo);
+        Dance dance = new Dance();
         v.AddAgent(dance);
     }
 }

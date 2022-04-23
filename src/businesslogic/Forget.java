@@ -14,13 +14,12 @@ public class Forget extends Agent {
         target.ClearMemories();
     }
 
-    /**
-     * Beállítja, hogy mennyi anyagba kerül a létrehozása
-     * @param aminoac
-     * @param nucleo
-     */
-    public Forget(int aminoac, int nucleo) {
-        super(aminoac, nucleo);
+
+    public Forget() {
+        super();
+        this.aminoacid=3;
+        this.nucleotid=6;
+        this.name="Forget";
         // TODO Auto-generated constructor stub
     }
 }

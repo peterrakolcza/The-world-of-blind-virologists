@@ -9,15 +9,18 @@ import java.util.ArrayList;
  */
 public class Field {
 
+    protected String fieldID;
     protected ArrayList<Virologist> virologists;
     protected ArrayList<Field> neighbours;
+
 
     /**
      * Konstruktor
      */
-    public Field() {
+    public Field(int num) {
         virologists = new ArrayList<Virologist>();
         neighbours = new ArrayList<Field>();
+        this.fieldID="Field"+num;
     }
 
     public int getAmino()

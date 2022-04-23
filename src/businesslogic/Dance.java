@@ -5,13 +5,13 @@ package businesslogic;
  */
 public class Dance extends Agent {
 
-    /**
-     * Beállítja, hogy mennyi anyagba kerül a létrehozása
-     * @param aminoac
-     * @param nucleo
-     */
-    public Dance(int aminoac, int nucleo) {
-        super(aminoac, nucleo);
+
+
+    public Dance() {
+        super();
+        this.aminoacid=4;
+        this.nucleotid=5;
+        this.name="Dance";
         // TODO Auto-generated constructor stub
     }
 

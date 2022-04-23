@@ -5,13 +5,12 @@ package businesslogic;
  */
 public class Protect extends Agent {
 
-    /**
-     * Beállítja, hogy mennyi anyagba kerül a létrehozása
-     * @param aminoacid
-     * @param nucleotid
-     */
-    public Protect(int aminoacid, int nucleotid) {
-        super(aminoacid, nucleotid);
+
+    public Protect() {
+        super();
+        this.aminoacid=7;
+        this.nucleotid=2;
+        this.name="Protect";
         // TODO Auto-generated constructor stub
     }
 

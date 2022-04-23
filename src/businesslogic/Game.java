@@ -1,6 +1,15 @@
 package businesslogic;
 
+import com.google.gson.JsonObject;
+import netscape.javascript.JSObject;
+
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+
 
 /**
  * Kezeli az egész játékot. Létrehozza a szükséges elemeket, elindítja, majd ha valamelyik játékos nyert, befejezi a játékot.
@@ -23,30 +32,36 @@ public class Game {
         // jatek vege
     }
 
-    public void WriteJson(){
-        JSONObject jsonObject = new JSONObject();
+    public void WriteJsonVirologist(ArrayList<Virologist> virologists,int testnum) throws IOException {
+        GsonBuilder builder = new GsonBuilder()
+                .setPrettyPrinting();
+        Gson gson = builder.create();
+        FileWriter writer = new FileWriter("teszt" + testnum + ".json");
+        for (int i = 0; i < virologists.size(); i++) {
+            writer.write(gson.toJson(virologists.get(i)));
+        }
+
+        writer.close();
+
+    }
+
+        /*JSONObject jsonObject = new JSONObject();
         if (field.GetActiveSettler() != null)
             jsonObject.put("ActiveSettler", field.GetActiveSettler().GetName());
         else
             jsonObject.put("ActiveSettler", "NULL");
 
-        /**
-         * innentol a keringo objektumok felepitese
-         */
+
         JSONObject orbitingObjectsJson = new JSONObject();
 
-        /**
-         * bazis aszteroida
-         */
+
         JSONObject baseAsteroidJson = new JSONObject();
         if (base != null) {
             baseAsteroidJson.put("xCoordinate", base.GetPosition().GetX());
             baseAsteroidJson.put("yCoordinate", base.GetPosition().GetY());
             baseAsteroidJson.put("thickness", base.GetThickness());
 
-            /**
-             * chest tartalma
-             */
+
             JSONArray chestJson = new JSONArray();
             ArrayList<String> chestItemNames = new ArrayList<>();
 
@@ -59,9 +74,7 @@ public class Game {
             baseAsteroidJson.put("chest", chestJson);
 
 
-            /**
-             *  bazis szomszedai
-             */
+
             JSONArray baseNeighboursJson = new JSONArray();
             ArrayList<String> baseNeighboursNames = new ArrayList<>();
 
@@ -78,9 +91,7 @@ public class Game {
             orbitingObjectsJson.put("BaseAsteroid", "NULL");
         }
 
-        /**
-         * lista az aszteroidakrol
-         */
+
         JSONArray asteroidListJson = new JSONArray();
 
         for (Ellipse2D ellipse : field.GetEllipses()) {
@@ -118,9 +129,7 @@ public class Game {
 
         orbitingObjectsJson.put("Asteroids:", asteroidListJson);
 
-        /**
-         * lista a teleportkapukrol
-         */
+
         JSONArray teleportGateListJson = new JSONArray();
 
         for (Ellipse2D ellipse : field.GetEllipses()) {
@@ -157,9 +166,7 @@ public class Game {
 
         jsonObject.put("OrbitingObjects", orbitingObjectsJson);
 
-        /**
-         * lista a telepesekrol
-         */
+
         JSONArray settlerListJson = new JSONArray();
 
         if(base != null) {
@@ -167,9 +174,7 @@ public class Game {
                 if (worker.getClass() == Settler.class) {
                     JSONObject settlerJson = new JSONObject();
 
-                    /**
-                     * material inventory
-                     */
+
                     JSONArray inventoryJson = new JSONArray();
                     ArrayList<String> inventoryNames = new ArrayList<>();
                     for (Material material : ((Settler) worker).GetBackpack()) {
@@ -178,9 +183,7 @@ public class Game {
                     inventoryJson.putAll(inventoryNames);
                     settlerJson.put("inventory", inventoryJson);
 
-                    /**
-                     *  teleportGate inventory
-                     */
+
                     JSONArray teleportGateJson = new JSONArray();
                     ArrayList<String> teleportGateNames = new ArrayList<>();
                     for (TeleportGate teleportGate : ((Settler) worker).GetGateInventory()) {
@@ -203,9 +206,7 @@ public class Game {
                     if (worker.getClass() == Settler.class) {
                         JSONObject settlerJson = new JSONObject();
 
-                        /**
-                         * material inventory
-                         */
+
                         JSONArray inventoryJson = new JSONArray();
                         ArrayList<String> inventoryNames = new ArrayList<>();
                         for (Material material : ((Settler) worker).GetBackpack()) {
@@ -214,9 +215,7 @@ public class Game {
                         inventoryJson.putAll(inventoryNames);
                         settlerJson.put("inventory", inventoryJson);
 
-                        /**
-                         *  teleportGate inventory
-                         */
+
                         JSONArray teleportGateJson = new JSONArray();
                         ArrayList<String> teleportGateNames = new ArrayList<>();
                         for (TeleportGate teleportGate : ((Settler) worker).GetGateInventory()) {
@@ -237,9 +236,7 @@ public class Game {
 
         jsonObject.put("Settlers", settlerListJson);
 
-        /**
-         *  lista a robotokrol
-         */
+
 
         JSONArray robotListJson = new JSONArray();
 
@@ -260,9 +257,7 @@ public class Game {
 
         jsonObject.put("Robots", robotListJson);
 
-        /**
-         * lista az ufokrol
-         */
+
         JSONArray ufoListJson = new JSONArray();
 
         for (Ellipse2D ellipse : field.GetEllipses()) {
@@ -282,9 +277,7 @@ public class Game {
 
         jsonObject.put("Ufos", ufoListJson);
 
-        /**
-         * lista a solarStromokrol
-         */
+
         JSONArray solarStormListJson = new JSONArray();
 
         for (SolarStorm solarStorm : field.GetSun().GetSolarStorms()) {
@@ -299,7 +292,7 @@ public class Game {
 
         jsonObject.put("Solarstorms", solarStormListJson);
 
-        System.out.println(jsonObject.toString(4));
+        System.out.println(jsonObject.toString(4));*/
 
     }
-}
+
