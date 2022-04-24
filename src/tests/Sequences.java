@@ -14,6 +14,7 @@ public class Sequences {
 
     /**
      * Nem vedett Virologuson root agent hasznalata
+     * elvárás: a root ágens kiváltja a hatását
      */
     public void TestRootAgentUse() {
         int num = 7;
@@ -43,6 +44,7 @@ public class Sequences {
 
     /**
      * Leteszteli a Protect ágenst
+     * elvárás: az ágens kiváltja a hatását
      */
     public void UseProtectAgent() {
         int num = 8;
@@ -69,6 +71,7 @@ public class Sequences {
 
     /**
      * Leteszteli, hogy lehet-e ágenst használni valakin, amíg protected
+     * elvárás: nem lehet
      */
     public void TestAgentWhileProtected() {
         int num = 9;
@@ -108,6 +111,7 @@ public class Sequences {
 
     /**
      * Leteszteli a Dance ágenst
+     * elvárás: az ágens kiváltja a hatását
      */
     public void TestDanceAgent() {
         int num = 10;
@@ -158,6 +162,7 @@ public class Sequences {
 
     /**
      * Leteszteli a Forget ágenst
+     * elvárás: az ágens kiváltja a hatását
      */
     public void TestForgetAgent() {
         int num = 11;
@@ -194,7 +199,8 @@ public class Sequences {
 
     /**
      * Leteszteli, hogy az ágens létrehozása sikeres volt-e.
-     */
+     * elvárás: sikeres
+    */
     public void TestCreatingAgentSuccessfully() {
         int num = 6;
         Gloves glove = new Gloves();
@@ -214,6 +220,7 @@ public class Sequences {
 
     /**
      * Leteszteli, hogy létre lehet-e hozni egy ágenst az elegendő anyag nélkül.
+     * elvárás: nem jön létre ágens
      */
     public void TestCreatingAgentNotEnoughMaterial() {
         int num = 5;
@@ -234,6 +241,7 @@ public class Sequences {
 
     /**
      * Létrehoz egy új ágenst, ismeretlen kódból.
+     * elvárás: létrejönnek az ágensek amiknek már tudjuk a kódját
      */
     public void TestCreatingAgentUnknownCode() {
 
