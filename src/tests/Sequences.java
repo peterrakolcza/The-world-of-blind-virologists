@@ -324,18 +324,17 @@ public class Sequences {
     public void VirologistPicksUpEquipment() {
         int num = 15;
 
-        Virologist v = new Virologist(0, null, 0, 0, 40, 1);
+        Virologist v = new Virologist(0, new Gloves(), 0, 0, 40, 1);
         Shelter field = new Shelter(1);
 
         v.setField(field);
         field.Add(v);
 
-        field.AddEquipment(new Bag());
+        field.AddEquipment(new Bag("Bag1"));
 
         field.Action();
 
         field.Remove(v);
-        //v.setField(null);
 
         virologists.add(v);
         try {
@@ -348,25 +347,11 @@ public class Sequences {
 
     /**
      * A virológus megpróbál egy védőfelszerelést felvenni, de nincs az óvóhelyen, nem sikerül felvenni a felszerelést.
-     * elvaras: nem tortenik semmi, aminoacid es nucleotid szam marad 0
+     * elvaras: nem tortenik semmi
      */
     public void VirologistTriesToPickUpEquipmentOutsideOfShelter() {
         int num = 16;
-        Virologist v = new Virologist(0, null, 0, 0, 40, 1);
-        Shelter field = new Shelter(1);
-
-        v.setField(field);
-        field.Add(v);
-
-        field.Action();
-
-        virologists.add(v);
-        try {
-            game.WriteJsonVirologist(virologists, num);
-        } catch (IOException e) {
-            System.out.println(e);
-        }
-        virologists.clear();
+        System.out.println("Nem lehetseges.");
     }
 
     /**
@@ -375,18 +360,30 @@ public class Sequences {
      */
     public void VirologistStealsMaterialOrEquipment() {
         int num = 17;
-        Gloves glove = new Gloves();
-        Virologist v = new Virologist(0, glove, 0, 0, 40, 1);
+
+        Virologist v = new Virologist(0, new Gloves(), 0, 0, 40, 1);
+        Virologist v_rooted = new Virologist(0, new Gloves(), 0, 0, 40, 2);
         Field field = new Field(1);
 
         v.setField(field);
         field.Add(v);
 
+        v_rooted.setField(field);
+        field.Add(v_rooted);
+
+        v_rooted.Root();
+        Axe axe = new Axe("Axe1");
+        v_rooted.AddEquipment(axe);
+
+        v.TakeEquipmentFromVirologist(axe, v_rooted);
+
         field.Action();
+
         field.Remove(v);
-        v.setField(null);
+        field.Remove(v_rooted);
 
         virologists.add(v);
+        virologists.add(v_rooted);
         try {
             game.WriteJsonVirologist(virologists, num);
         } catch (IOException e) {

@@ -5,6 +5,8 @@ package businesslogic;
  */
 public abstract class Equipment {
 
+    protected String name;
+
     /**
      * Hozzárendeli a felszerelest egy virologushoz.
      * @param by - virologus akié lesz a felszerelés

@@ -14,4 +14,9 @@ public class Bag extends Equipment {
         int bag_szie_increase = 10;
         by.setMax(bag_szie_increase);
     }
+
+    public Bag(String name) {
+        super();
+        this.name = name;
+    }
 }

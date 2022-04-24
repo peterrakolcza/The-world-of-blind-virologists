@@ -5,6 +5,11 @@ package businesslogic;
  */
 public class Cape extends Equipment {
 
+    public Cape(String name) {
+        super();
+        this.name = name;
+    }
+
     /**
      * Hozzárendeli egy virologushoz
      * @param by - virologus akié lesz a felszerelés
