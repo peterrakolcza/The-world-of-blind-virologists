@@ -421,7 +421,10 @@ public class Sequences {
         virologists.clear();
     }
 
-    // a virologus mozog egy szomszedos mezore
+    /**
+     * A virolóhus elmozog egy szomszédos mezőre.
+     * elvárás: a virológus új poziciója a másik mező
+     */
     public void TestMoveToNeighbourField() {
         int num = 1;
         Gloves glove=new Gloves();
@@ -449,7 +452,10 @@ public class Sequences {
         virologists.clear();
     }
 
-    // virologus megtanul egy kodot egy labortoriumbol, itt egy dance codeot tanul meg
+    /**
+     * virologus megtanul egy kodot egy labortoriumbol, itt egy dance codeot tanul meg
+     * elvaras: hozzáadódik egy dancecode a virógushoz
+     */
     public void TestLearnGeneticCode(){
         int num = 2;
         Gloves glove = new Gloves();
@@ -472,7 +478,10 @@ public class Sequences {
         virologists.clear();
     }
 
-    // virologus magan hasznal egy agenst, itt egy protect agenst
+    /**
+     * virologus magan hasznal egy agenst, itt egy protect agenst
+     * elvaras: csökken a kesztyű ideje és megnő a virolúgus protectionje 1-re
+     */ 
     public void TestUseAgentOnItself(){
         int num = 3;
         Gloves glove = new Gloves();
