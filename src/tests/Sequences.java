@@ -228,6 +228,85 @@ public class Sequences {
         virologists.clear();
     }
 
+    /**Virologus felveszi az anyagot
+     * elvaras: virologus aminoacid es nucleotid szama 10-10*/
+    public void TestPickUpMaterial() {
+        int num = 12;
+        Gloves glove=new Gloves();
+        Virologist v=new Virologist(0,glove,0,0,40,1);
+        Field storage = new Storage(10,10,1);
+
+
+        v.setField(storage);
+        storage.Add(v);
+
+        storage.Action();
+
+        storage.Remove(v);
+        v.setField(null);
+
+        virologists.add(v);
+        try{
+            game.WriteJsonVirologist(virologists,num);
+        }catch (IOException e)
+        {
+            System.out.println(e);
+        }
+        virologists.clear();
+    }
+
+    /**Virologus megprobal anyagot felvenni mikozben a max limit mar el van erve
+     * elvaras: virologus aminoacid es nucleotid szama marad 20-20*/
+    public void TestPickUpMaterialWithLimitReached() {
+        int num = 13;
+        Gloves glove=new Gloves();
+        Virologist v=new Virologist(0,glove,20,20,20,1);
+        Field storage = new Storage(10,10,1);
+
+        v.setField(storage);
+        storage.Add(v);
+
+        storage.Action();
+
+        storage.Remove(v);
+        v.setField(null);
+
+        virologists.add(v);
+        try{
+            game.WriteJsonVirologist(virologists,num);
+        }catch (IOException e)
+        {
+            System.out.println(e);
+        }
+        virologists.clear();
+    }
+
+    /**Virologus megprobal anyagot felvenni olyan mezon, ahol ez nem lehetseges
+     * elvaras: nem tortenik semmi, aminoacid es nucleotid szam marad 0*/
+    public void TestPickUpMaterialOnWrongField() {
+        int num = 14;
+        Gloves glove=new Gloves();
+        Virologist v=new Virologist(0,glove,0,0,40,1);
+        Field field = new Field(1);
+
+        v.setField(field);
+        field.Add(v);
+
+        field.Action();
+
+        field.Remove(v);
+        v.setField(null);
+
+        virologists.add(v);
+        try{
+            game.WriteJsonVirologist(virologists,num);
+        }catch (IOException e)
+        {
+            System.out.println(e);
+        }
+        virologists.clear();
+    }
+
     static private void printMenuItems() {
         System.out.println("1. xy eset:");
         System.out.println("2. Valassz egy tesztesetet:");
@@ -240,6 +319,9 @@ public class Sequences {
         System.out.println("9. TestAgentWhileProtected:");
         System.out.println("10. TestDanceAgent:");
         System.out.println("11. TestForgetAgent:");
+        System.out.println("12. TestPickUpMaterial:");
+        System.out.println("13. TestPickUpMaterialWithLimitReached:");
+        System.out.println("14. TestPickUpMaterialOnWrongField:");
         System.out.println("-1. Kilepes...");
     }
 
@@ -260,7 +342,7 @@ public class Sequences {
             System.out.println("Valassz egy tesztesetet:");
             sel = sc.nextInt();
 
-            if(sel == -1 || sel > 11)
+            if(sel == -1 || sel > 14)
                 break;
 
             switch (sel) {
@@ -300,6 +382,15 @@ public class Sequences {
                     break;
                 case 11:
                     s.TestForgetAgent();
+                    break;
+                case 12:
+                    s.TestPickUpMaterial();
+                    break;
+                case 13:
+                    s.TestPickUpMaterialWithLimitReached();
+                    break;
+                case 14:
+                    s.TestPickUpMaterialOnWrongField();
                     break;
             }
 

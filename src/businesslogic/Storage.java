@@ -21,6 +21,7 @@ public class Storage extends Field {
         for (int i = 0; i < GetVirologists().size(); i++) {
             GetVirologists().get(i).pickUp(aminoacid, nucleotid);
         }
+
         // actionje
     }
 
