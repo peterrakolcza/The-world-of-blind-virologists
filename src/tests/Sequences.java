@@ -41,6 +41,9 @@ public class Sequences {
         virologists.clear();
     }
 
+    /**
+     * Leteszteli a Protect ágenst
+     */
     public void UseProtectAgent() {
         int num = 8;
         Gloves glove = new Gloves();
@@ -64,6 +67,9 @@ public class Sequences {
         virologists.clear();
     }
 
+    /**
+     * Leteszteli, hogy lehet-e ágenst használni valakin, amíg protected
+     */
     public void TestAgentWhileProtected() {
         int num = 9;
         Gloves glove = new Gloves();
@@ -100,6 +106,9 @@ public class Sequences {
         virologists.clear();
     }
 
+    /**
+     * Leteszteli a Dance ágenst
+     */
     public void TestDanceAgent() {
         int num = 10;
         Gloves glove = new Gloves();
@@ -147,6 +156,9 @@ public class Sequences {
         virologists.clear();
     }
 
+    /**
+     * Leteszteli a Forget ágenst
+     */
     public void TestForgetAgent() {
         int num = 11;
         Gloves glove = new Gloves();
@@ -180,6 +192,9 @@ public class Sequences {
         }
     }
 
+    /**
+     * Leteszteli, hogy az ágens létrehozása sikeres volt-e.
+     */
     public void TestCreatingAgentSuccessfully() {
         int num = 6;
         Gloves glove = new Gloves();
@@ -197,6 +212,9 @@ public class Sequences {
         virologists.clear();
     }
 
+    /**
+     * Leteszteli, hogy létre lehet-e hozni egy ágenst az elegendő anyag nélkül.
+     */
     public void TestCreatingAgentNotEnoughMaterial() {
         int num = 5;
         Gloves glove = new Gloves();
@@ -214,6 +232,9 @@ public class Sequences {
         virologists.clear();
     }
 
+    /**
+     * Létrehoz egy új ágenst, ismeretlen kódból.
+     */
     public void TestCreatingAgentUnknownCode() {
 
         int num = 4;
@@ -420,7 +441,7 @@ public class Sequences {
         virologists.clear();
     }
 
-    // virologus megtanul egy kodot egy labortoriumbol
+    // virologus megtanul egy kodot egy labortoriumbol, itt egy dance codeot tanul meg
     public void TestLearnGeneticCode(){
         int num = 2;
         Gloves glove = new Gloves();
@@ -443,7 +464,7 @@ public class Sequences {
         virologists.clear();
     }
 
-    // virologus magan hasznal egy agentot
+    // virologus magan hasznal egy agenst, itt egy protect agenst
     public void TestUseAgentOnItself(){
         int num = 3;
         Gloves glove = new Gloves();
