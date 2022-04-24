@@ -16,11 +16,11 @@ import java.util.UUID;
  */
 public class Virologist {
 
-    /** A vedettseget hatasfokat jelzo double ertek */
-
+    
     private String activeVirologist;
-
-
+    
+    
+    /** A vedettseget hatasfokat jelzo double ertek */
     private double protection = 0;
 
 
@@ -81,7 +81,6 @@ public class Virologist {
 
     public void setField(Field f) {
         this.onField = f;
-
     }
 
     public Field getField(){return this.onField;}
@@ -113,7 +112,7 @@ public class Virologist {
      * Itt azt változtattam, hogy ha a védettség nagyobb mint 82% vagy van glove-ja, amelyiknek a lifetimeja nem 0.
      * */
     public boolean isProtected() {
-        return 0.823 < protection || this.glove.EffectTime>0;
+        return 0.823 < protection || this.glove.EffectTime > 0;
     }
 
     public boolean HasGloves() {
@@ -136,13 +135,13 @@ public class Virologist {
     };
 
     public void UseAgent(Agent a, Virologist v) {
-        Random r = new Random();
         if (onField.GetVirologists().contains(v) && (this.agents.contains(a) && !v.HasGloves() && v.isProtected()==false)) {
             a.AgentEffect(v);
         }
-        else if(v.HasGloves()==true)
+        else if(v.HasGloves() == true)
         {
-            this.glove.EffectTime=glove.EffectTime-1;
+            glove.reduceLifeTime();
+            a.AgentEffect(this);
             System.out.println("Csokkent eggyel a kesztyu lifetime-ja!");
         }
     }
@@ -252,7 +251,6 @@ public class Virologist {
             if (maxAmount < this.aminoacid) {
                 this.aminoacid = maxAmount;
             }
-
         }
 
         if (this.nucleotid < maxAmount) {

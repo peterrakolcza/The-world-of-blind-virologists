@@ -314,10 +314,85 @@ public class Sequences {
         virologists.clear();
     }
 
+    // a virologus mozog egy szomszedos mezore
+    public void TestMoveToNeighbourField() {
+        int num = 1;
+        Gloves glove=new Gloves();
+        Virologist v=new Virologist(0,glove,0,0,40,1);
+        Field field = new Field(1);
+        Field field2 = new Field(2);
+
+        v.setField(field);
+        field.Add(v);
+
+        field.Remove(v);
+        v.setField(field2);
+        field2.Add(v);
+
+        field2.Remove(v);
+        v.setField(null);
+
+        virologists.add(v);
+        try{
+            game.WriteJsonVirologist(virologists,num);
+        }catch (IOException e)
+        {
+            System.out.println(e);
+        }
+        virologists.clear();
+    }
+
+    // virologus megtanul egy kodot egy labortoriumbol
+    public void TestLearnGeneticCode(){
+        int num = 2;
+        Gloves glove = new Gloves();
+        Virologist v = new Virologist(0,glove,0,0,40,1);
+
+        DanceCode code = new DanceCode();
+        Laboratory lab = new Laboratory(code, 1);
+
+        v.setField(lab);
+        lab.Add(v);
+        lab.Action();
+        lab.Remove(v);
+        virologists.add(v);
+        try{
+            game.WriteJsonVirologist(virologists,num);
+        }catch (IOException e)
+        {
+            System.out.println(e);
+        }
+        virologists.clear();
+    }
+
+    // virologus magan hasznal egy agentot
+    public void TestUseAgentOnItself(){
+        int num = 3;
+        Gloves glove = new Gloves();
+        Virologist v = new Virologist(0,glove,0,0,40,1);
+        Field field = new Field(1);
+
+        v.setField(field);
+
+        Agent protect = new Protect();
+        v.AddAgent(protect);
+
+        v.UseAgent(protect, v);
+        virologists.add(v);
+        try{
+            game.WriteJsonVirologist(virologists,num);
+        }catch (IOException e)
+        {
+            System.out.println(e);
+        }
+        virologists.clear();
+    }
+
+
     static private void printMenuItems() {
-        System.out.println("\n1. xy eset:");
-        System.out.println("2. Valassz egy tesztesetet:");
-        System.out.println("3. Valassz egy tesztesetet:");
+        System.out.println("\n1. TestMoveToNeighbourField");
+        System.out.println("2. TestLearnGeneticCode");
+        System.out.println("3. TestUseAgentOnItself");
         System.out.println("4. TestCreatingAgentUnknownCode:");
         System.out.println("5. TestCreatingAgentNotEnoughMaterial:");
         System.out.println("6. TestCreatingAgentSuccessfully:");
@@ -342,29 +417,23 @@ public class Sequences {
 
         Sequences s = new Sequences();
 
-
-
         while(true) {
             printMenuItems();
             System.out.println("Valassz egy tesztesetet:");
             sel = sc.nextInt();
 
-            if(sel == -1 || sel > 14)
+            if(sel == -1 || sel == 0 || sel > 14)
                 break;
 
             switch (sel) {
-
-                case 0:
-                    //Ide teszt
-                    break;
                 case 1:
-                    //Ide teszt
+                    s.TestMoveToNeighbourField();
                     break;
                 case 2:
-                    //Ide teszt
+                    s.TestLearnGeneticCode();
                     break;
                 case 3:
-                    //Ide teszt
+                    s.TestUseAgentOnItself();
                     break;
                 case 4:
                     s.TestCreatingAgentUnknownCode();

@@ -20,6 +20,5 @@ public class Forget extends Agent {
         this.aminoacid=3;
         this.nucleotid=6;
         this.name="Forget";
-        // TODO Auto-generated constructor stub
     }
 }
