@@ -36,7 +36,8 @@ public class Game {
         Gson gson = builder.create();
         FileWriter writer = new FileWriter("teszt_virologist" + testnum + ".json");
         for (int i = 0; i < virologists.size(); i++) {
-            writer.write(gson.toJson(virologists.get(i)));
+            //writer.write(gson.toJson(virologists.get(i)));
+            System.out.println(gson.toJson(virologists.get(i)));
         }
         //System.out.println("ismert agensek"+virologists.get(1).getKnownCodes().size());
         //virologists.get(1).ClearMemories();
