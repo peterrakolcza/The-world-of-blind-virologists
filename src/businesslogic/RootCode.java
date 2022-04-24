@@ -11,10 +11,11 @@ public class RootCode extends GeneticCode {
      */
     @Override
     public void create(Virologist v) {
-        final int amino = 1;
+        final int amino = 3;
         final int nucleo = 2;
-        Root root = new Root();
-        v.AddAgent(root);
-
+        if(v.useMatters(amino, nucleo)) {
+            Root root = new Root();
+            v.AddAgent(root);
+        }
     }
 }

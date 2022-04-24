@@ -2,8 +2,6 @@ package businesslogic;
 
 import tests.Sequences;
 
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -20,9 +18,9 @@ public class Main {
         System.out.println("1. xy eset:");
         System.out.println("2. Valasz egy tesztesetet:");
         System.out.println("3. Valasz egy tesztesetet:");
-        System.out.println("4. Valasz egy tesztesetet:");
-        System.out.println("5. Valasz egy tesztesetet:");
-        System.out.println("6. Valasz egy tesztesetet:");
+        System.out.println("4. TestCreatingAgentUnknownCode:");
+        System.out.println("5. TestCreatingAgentNotEnoughMaterial:");
+        System.out.println("6. TestCreatingAgentSuccessfully:");
         System.out.println("7. TestRootAgentUse:");
         System.out.println("8. UseProtectAgent:");
         System.out.println("9. TestAgentWhileProtected:");
@@ -35,9 +33,9 @@ public class Main {
             System.out.println("1. xy eset:");
             System.out.println("2. Valasz egy tesztesetet:");
             System.out.println("3. Valasz egy tesztesetet:");
-            System.out.println("4. Valasz egy tesztesetet:");
-            System.out.println("5. Valasz egy tesztesetet:");
-            System.out.println("6. Valasz egy tesztesetet:");
+            System.out.println("4. TestCreatingAgentUnknownCode:");
+            System.out.println("5. TestCreatingAgentNotEnoughMaterial:");
+            System.out.println("6. TestCreatingAgentSuccessfully:");
             System.out.println("7. TestRootAgentUse:");
             System.out.println("8. UseProtectAgent:");
             System.out.println("9. TestAgentWhileProtected:");
@@ -59,13 +57,13 @@ public class Main {
                     //Ide teszt
                     break;
                 case 4:
-                    //Ide teszt
+                    s.TestCreatingAgentUnknownCode();
                     break;
                 case 5:
-                    //Ide teszt
+                    s.TestCreatingAgentNotEnoughMaterial();
                     break;
                 case 6:
-                    //Ide teszt
+                    s.TestCreatingAgentSuccessfully();
                     break;
                 case 7:
                     s.TestRootAgentUse();

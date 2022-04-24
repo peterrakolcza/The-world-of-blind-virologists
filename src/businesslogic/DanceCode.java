@@ -18,9 +18,11 @@ public class DanceCode extends GeneticCode {
      */
     @Override
     public void create(Virologist v) {
-        final int amino = 5;
-        final int nucleo = 4;
-        Dance dance = new Dance();
-        v.AddAgent(dance);
+        final int amino = 4;
+        final int nucleo = 5;
+        if(v.useMatters(amino, nucleo)) {
+            Dance dance = new Dance();
+            v.AddAgent(dance);
+        }
     }
 }

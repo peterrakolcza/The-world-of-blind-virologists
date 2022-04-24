@@ -12,8 +12,10 @@ public class ForgetCode extends GeneticCode {
     @Override
     public void create(Virologist v) {
         final int amino = 3;
-        final int nucleo = 3;
-        Forget forget = new Forget();
-        v.AddAgent(forget);
+        final int nucleo = 6;
+        if(v.useMatters(amino, nucleo)) {
+            Forget forget = new Forget();
+            v.AddAgent(forget);
+        }
     }
 }
