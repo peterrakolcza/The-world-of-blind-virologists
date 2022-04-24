@@ -498,21 +498,13 @@ public class Sequences {
 
         Sequences s = new Sequences();
 
-<<<<<<< HEAD
-        while(true) {
-=======
 
         while (true) {
->>>>>>> 78bf64581668aff888f3dd9f80450a436607b45b
             printMenuItems();
             System.out.println("Valassz egy tesztesetet:");
             sel = sc.nextInt();
 
-<<<<<<< HEAD
-            if(sel == -1 || sel == 0 || sel > 14)
-=======
             if (sel == -1 || sel > 17)
->>>>>>> 78bf64581668aff888f3dd9f80450a436607b45b
                 break;
 
             switch (sel) {
