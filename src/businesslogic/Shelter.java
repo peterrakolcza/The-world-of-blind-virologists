@@ -9,7 +9,7 @@ import java.util.ArrayList;
  */
 public class Shelter extends Field {
 
-    private ArrayList<Equipment> equipment;
+    private ArrayList<Equipment> equipment = new ArrayList<Equipment>();
 
     public Shelter(int num)
     {
@@ -22,6 +22,14 @@ public class Shelter extends Field {
      */
     public void RemoveEquipment(Equipment e) {
         equipment.remove(e);
+    }
+
+    /**
+     * Hozzáad egy felszerelést
+     * @param e - a felszereles
+     */
+    public void AddEquipment(Equipment e) {
+        equipment.add(e);
     }
 
     /**

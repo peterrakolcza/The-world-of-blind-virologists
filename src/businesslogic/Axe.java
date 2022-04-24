@@ -3,7 +3,7 @@ package businesslogic;
 /**
  * védőfelszerelés amellyel megölhető a medve
  */
-public class Ax extends Equipment{
+public class Axe extends Equipment{
     private boolean used;
     /**
      * @param by - virologus akié lesz a felszerelés
@@ -13,8 +13,9 @@ public class Ax extends Equipment{
         by.setHasActiveAx(true);
     }
 
-    public Ax() {
+    public Axe(String name) {
         super();
         this.used = false;
+        this.name = name;
     }
 }

@@ -34,7 +34,11 @@ public class Game {
         GsonBuilder builder = new GsonBuilder()
                 .setPrettyPrinting();
         Gson gson = builder.create();
+<<<<<<< HEAD
         // FileWriter writer = new FileWriter("teszt_virologist" + testnum + ".json");
+=======
+        //FileWriter writer = new FileWriter("teszt_virologist" + testnum + ".json");
+>>>>>>> 78bf64581668aff888f3dd9f80450a436607b45b
         for (int i = 0; i < virologists.size(); i++) {
             //writer.write(gson.toJson(virologists.get(i)));
             System.out.println(gson.toJson(virologists.get(i)));
@@ -43,7 +47,12 @@ public class Game {
         //virologists.get(1).ClearMemories();
         //writer.write(gson.toJson(virologists.get(1)));
 
+<<<<<<< HEAD
         // writer.close();
+=======
+        //writer.close();
+
+>>>>>>> 78bf64581668aff888f3dd9f80450a436607b45b
     }
 
     public void WriteFieldToJson(ArrayList<Virologist> virologists,int testnum,Field f) throws IOException {
@@ -57,6 +66,7 @@ public class Game {
         writer.close();
     }
 
+<<<<<<< HEAD
     public void WriteField(int testnum,Field f) throws IOException {
         GsonBuilder builder = new GsonBuilder()
                 .setPrettyPrinting();
@@ -66,5 +76,7 @@ public class Game {
         writer.write(gson.toJson(f));
         writer.close();
     }
+=======
+>>>>>>> 78bf64581668aff888f3dd9f80450a436607b45b
 }
 
