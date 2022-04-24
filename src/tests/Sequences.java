@@ -113,8 +113,11 @@ public class Sequences {
         virologists.add(v2);
         Field f = new Field(0);
         Field f2 = new Field(3);
+        Shelter s=new Shelter(4);
         v2.setField(f);
-        v2.getField().SetNeigh(f2);
+        f.SetNeigh(f2);
+        f.SetNeigh(s);
+        System.out.println("Virologist field id before move: "+v2.getField().GetID());
 
 
         for (int i = 0; i < v.getAgents().size(); i++) {
@@ -128,11 +131,11 @@ public class Sequences {
                     switch (n) {
                         case 0:
                             v2.Move(f2);
-                            try {
-                                game.WriteField(num, f2);
-                            } catch (IOException e) {
-                                System.out.println(e);
-                            }
+                            System.out.println("Virologist field id after move: "+v2.getField().GetID());
+                            break;
+                        case 1:
+                            v2.Move(s);
+                            System.out.println("Virologist field id after move: "+v2.getField().GetID());
                             break;
                     }
 
@@ -149,13 +152,17 @@ public class Sequences {
         Gloves glove = new Gloves();
         glove.SetEffectTime(0);
         ForgetCode fc = new ForgetCode();
+        RootCode rc=new RootCode();
+        DanceCode dc=new DanceCode();
         Virologist v = new Virologist(0, glove, 10, 15, 40, 1);
         Virologist v2 = new Virologist(0, glove, 10, 20, 30, 2);
         Field f = new Field(1);
         fc.create(v);
+        rc.create(v2);
+        dc.create(v2);
+        v2.AddCode(rc);
+        v2.AddCode(dc);
         v.AddCode(fc);
-        //fc.create(v2);
-        v2.AddCode(fc);
         v.setField(f);
         v2.setField(f);
         virologists.add(v);
@@ -308,7 +315,7 @@ public class Sequences {
     }
 
     static private void printMenuItems() {
-        System.out.println("1. xy eset:");
+        System.out.println("\n1. xy eset:");
         System.out.println("2. Valassz egy tesztesetet:");
         System.out.println("3. Valassz egy tesztesetet:");
         System.out.println("4. TestCreatingAgentUnknownCode:");
@@ -322,7 +329,7 @@ public class Sequences {
         System.out.println("12. TestPickUpMaterial:");
         System.out.println("13. TestPickUpMaterialWithLimitReached:");
         System.out.println("14. TestPickUpMaterialOnWrongField:");
-        System.out.println("-1. Kilepes...");
+        System.out.println("-1. Kilepes...\n");
     }
 
     public static void main(String args[]) // static method
