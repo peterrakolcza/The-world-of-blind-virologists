@@ -127,9 +127,11 @@ public class Sequences {
         virologists.add(v2);
         Field f=new Field(0);
         Field f2=new Field(3);
+        Shelter s=new Shelter(4);
+        f.SetNeigh(f2);
+        f.SetNeigh(s);
         v2.setField(f);
-        v2.getField().SetNeigh(f2);
-
+        System.out.println("A Virologus Field-id mozgas elott: "+v2.getField().GetID());
 
         for(int i=0;i<v.getAgents().size();i++)
         {
@@ -146,12 +148,11 @@ public class Sequences {
                     {
                         case 0:
                             v2.Move(f2);
-                            try{
-                                game.WriteField(num,f2);
-                            }catch (IOException e)
-                            {
-                                System.out.println(e);
-                            }
+                            System.out.println("A Virologus Field-id mozgas utan: "+v2.getField().GetID());
+                            break;
+                        case 1:
+                            v2.Move(s);
+                            System.out.println("A Virologus Field-id mozgas utan: "+v2.getField().GetID());
                             break;
                     }
 
@@ -169,13 +170,17 @@ public class Sequences {
         Gloves glove=new Gloves();
         glove.SetEffectTime(0);
         ForgetCode fc=new ForgetCode();
+        RootCode rc=new RootCode();
+        DanceCode dc=new DanceCode();
         Virologist v=new Virologist(0,glove,10,15,40,1);
         Virologist v2=new Virologist(0,glove,10,20,30,2);
         Field f=new Field(1);
         fc.create(v);
+        rc.create(v2);
+        dc.create(v2);
         v.AddCode(fc);
-        //fc.create(v2);
-        v2.AddCode(fc);
+        v2.AddCode(rc);
+        v2.AddCode(dc);
         v.setField(f);
         v2.setField(f);
         virologists.add(v);
@@ -185,6 +190,7 @@ public class Sequences {
             if(v.getField()==v2.getField() && v.getAgents().get(i) instanceof Forget && !v2.isProtected())
             {
                 v.getAgents().get(i).AgentEffect(v2);
+
                 try
                 {
                     game.WriteJsonVirologist(virologists,num);

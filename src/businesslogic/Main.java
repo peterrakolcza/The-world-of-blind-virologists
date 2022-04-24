@@ -16,7 +16,7 @@ public class Main {
 
         Sequences s=new Sequences();
 
-        System.out.println("Valasz egy tesztesetet:");
+        System.out.println("Valasz egy tesztesetet:\n");
         System.out.println("1. xy eset:");
         System.out.println("2. Valasz egy tesztesetet:");
         System.out.println("3. Valasz egy tesztesetet:");
@@ -28,12 +28,12 @@ public class Main {
         System.out.println("9. TestAgentWhileProtected:");
         System.out.println("10. TestDanceAgent:");
         System.out.println("11. TestForgetAgent:");
-        System.out.println("-1. Kilepes...");
+        System.out.println("-1. Kilepes...\n");
 
         do{
             sel=sc.nextInt();
 
-            System.out.println("Valasz egy tesztesetet:");
+            System.out.println("Valasz egy tesztesetet:\n");
             System.out.println("1. xy eset:");
             System.out.println("2. Valasz egy tesztesetet:");
             System.out.println("3. Valasz egy tesztesetet:");
@@ -45,7 +45,7 @@ public class Main {
             System.out.println("9. TestAgentWhileProtected:");
             System.out.println("10. TestDanceAgent:");
             System.out.println("11. TestForgetAgent:");
-            System.out.println("-1. Kilepes...");
+            System.out.println("-1. Kilepes...\n");
 
             switch (sel)
             {
