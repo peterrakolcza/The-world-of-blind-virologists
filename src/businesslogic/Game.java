@@ -1,13 +1,11 @@
 package businesslogic;
 
-import com.google.gson.JsonObject;
-import netscape.javascript.JSObject;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 
 
@@ -38,11 +36,11 @@ public class Game {
         Gson gson = builder.create();
         FileWriter writer = new FileWriter("teszt_virologist" + testnum + ".json");
         for (int i = 0; i < virologists.size(); i++) {
-            //writer.write(gson.toJson(virologists.get(i)));
+            writer.write(gson.toJson(virologists.get(i)));
         }
-        System.out.println("ismert agensek"+virologists.get(1).getKnownCodes().size());
-        virologists.get(1).ClearMemories();
-        writer.write(gson.toJson(virologists.get(1)));
+        //System.out.println("ismert agensek"+virologists.get(1).getKnownCodes().size());
+        //virologists.get(1).ClearMemories();
+        //writer.write(gson.toJson(virologists.get(1)));
 
         writer.close();
 

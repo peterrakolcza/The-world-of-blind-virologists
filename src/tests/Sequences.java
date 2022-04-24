@@ -196,6 +196,64 @@ public class Sequences {
             }
         }
     }
+
+    public void TestCreatingAgentSuccessfully() {
+        int num=6;
+        Gloves glove=new Gloves();
+        Virologist v=new Virologist(0,glove,10,15,40,5);
+        DanceCode dancec = new DanceCode();
+        v.AddCode(dancec);
+        int index = v.getKnownCodes().lastIndexOf(dancec);
+        v.getKnownCodes().get(index).create(v);
+        virologists.add(v);
+        try{
+            game.WriteJsonVirologist(virologists,num);
+        }catch (IOException e)
+        {
+            System.out.println(e);
+        }
+        virologists.clear();
+    }
+
+    public void TestCreatingAgentNotEnoughMaterial() {
+        int num=5;
+        Gloves glove=new Gloves();
+        Virologist v=new Virologist(0,glove,0,0,40,7);
+        DanceCode dancec = new DanceCode();
+        v.AddCode(dancec);
+        int index = v.getKnownCodes().lastIndexOf(dancec);
+        v.getKnownCodes().get(index).create(v);
+        virologists.add(v);
+        try{
+            game.WriteJsonVirologist(virologists,num);
+        }catch (IOException e)
+        {
+            System.out.println(e);
+        }
+        virologists.clear();
+    }
+
+    public void TestCreatingAgentUnknownCode() {
+
+        int num=4;
+        Gloves glove=new Gloves();
+        Virologist v=new Virologist(0,glove,10,15,40,8);
+        DanceCode dancec = new DanceCode();
+        int index = v.getKnownCodes().lastIndexOf(dancec);
+
+        if((index<virologists.size()) && (index >= 0)) {
+            v.getKnownCodes().get(index).create(v);
+
+        }
+        virologists.add(v);
+        try{
+            game.WriteJsonVirologist(virologists,num);
+        }catch (IOException e)
+        {
+            System.out.println(e);
+        }
+        virologists.clear();
+    }
 }
 
 
