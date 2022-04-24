@@ -171,20 +171,24 @@ public class Virologist {
          * Ellenorzese annak hogy a virologus tud e mozogni a parameterkent megkapott
          * mezore
          */
-        System.out.println("Eredeti field"+this.onField.GetID());
+
+        System.out.println("A virologus root tulajdonsaga: "+this.rooted);
+        int i=0;
+        while(i!=this.onField.neighbours.size())
+        {
+            System.out.println("A virologus mezojenek szomszedjai: "+this.onField.neighbours.get(i).GetID());
+            i++;
+        }
         if (!rooted && onField.GetNeigh(this.getField()).contains(next)) {
-            System.out.println("Nem rootolt es szomszedos a mozgasra kijelolt mezo!");
             this.onField.GetVirologists().remove(this);
             this.onField = next;
             next.GetVirologists().add(this);
-            System.out.println("A next mezo"+this.onField.GetID());
         }
 
     }
 
     /** A Virologus eddig ismert genetic codejait elfelejti */
     public void ClearMemories() {
-        System.out.println("ide");
         this.knownCodes.clear();
     }
 

@@ -5,6 +5,12 @@ package businesslogic;
  */
 public class ForgetCode extends GeneticCode {
 
+    public ForgetCode()
+    {
+        super();
+        this.name="ForgetCode";
+    }
+
     /**
      * Létrehoz egy businesslogic.Forget ágenst, majd hozzaadja a virologushoz aki letrehozta.
      * @param v virologist aki leolvasta a falról
