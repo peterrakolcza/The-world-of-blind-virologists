@@ -10,10 +10,12 @@ public class Main {
 
     public static void main(String args[]) // static method
     {
+
+        Game g=new Game();
         Scanner sc=new Scanner(System.in);
 
         int sel=-2;
-        Game g=new Game();
+
         Sequences s=new Sequences();
 
         System.out.println("Valasz egy tesztesetet:");
@@ -26,6 +28,8 @@ public class Main {
         System.out.println("7. TestRootAgentUse:");
         System.out.println("8. UseProtectAgent:");
         System.out.println("9. TestAgentWhileProtected:");
+        System.out.println("10. TestDanceAgent:");
+        System.out.println("11. TestForgetAgent:");
         System.out.println("-1. Kilepes...");
 
         do{
@@ -41,6 +45,8 @@ public class Main {
             System.out.println("7. TestRootAgentUse:");
             System.out.println("8. UseProtectAgent:");
             System.out.println("9. TestAgentWhileProtected:");
+            System.out.println("10. TestDanceAgent:");
+            System.out.println("11. TestForgetAgent:");
             System.out.println("-1. Kilepes...");
 
             switch (sel)
@@ -76,9 +82,16 @@ public class Main {
                 case 9:
                     s.TestAgentWhileProtected();
                     break;
+                case 10:
+                    s.TestDanceAgent();
+                    break;
+                case 11:
+                    s.TestForgetAgent();
+                    break;
             }
 
         }while (sel!=-1);
+
 
 
 

@@ -1,5 +1,7 @@
 package businesslogic;
 
+import com.google.gson.annotations.Expose;
+
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.UUID;
@@ -15,24 +17,36 @@ import java.util.UUID;
 public class Virologist {
 
     /** A vedettseget hatasfokat jelzo double ertek */
+
     private String activeVirologist;
+
 
     private double protection = 0;
 
+
     private boolean  randommoves = false, rooted = false;
+
+
     private Gloves glove;
+
+
     private boolean hasActiveAx = false;
 
     /** A virologus anyag fajtai es a megengedheto maximum ertekuk */
+
     private int aminoacid, nucleotid, maxAmount;
 
     /** A virologus ismert genetika kodjat tartalmazo lista */
+
     private ArrayList<GeneticCode> knownCodes;
     /** A virologus altal letrehozott agenseket tartalmazo lista */
+
     private ArrayList<Agent> agents;
     /** Melyik mezon talalhato a virologus jelenleg */
+
     private Field onField;
     /** A virologus felszereleseit tartalmazo lista */
+
     private ArrayList<Equipment> equipment;
 
     /** Parameteres konstruktora a virologusnak */
@@ -50,12 +64,15 @@ public class Virologist {
         equipment = new ArrayList<Equipment>();
         knownCodes = new ArrayList<GeneticCode>();
         hasActiveAx = false;
+        this.onField=null;
 
     }
 
     public void setProtection(double protection) {
         this.protection = protection;
     }
+
+    public boolean IsRandomMove(){return randommoves;}
 
     public Agent GetSpecificAgent(int i)
     {
@@ -64,6 +81,7 @@ public class Virologist {
 
     public void setField(Field f) {
         this.onField = f;
+
     }
 
     public Field getField(){return this.onField;}
@@ -105,8 +123,6 @@ public class Virologist {
         }
         return false;
     }
-
-
 
     public ArrayList<GeneticCode> getKnownCodes() {
         return knownCodes;
@@ -155,17 +171,20 @@ public class Virologist {
          * Ellenorzese annak hogy a virologus tud e mozogni a parameterkent megkapott
          * mezore
          */
-        if (!rooted && onField.neighbours.contains(next)) {
+        System.out.println("Eredeti field"+this.onField.GetID());
+        if (!rooted && onField.GetNeigh(this.getField()).contains(next)) {
             System.out.println("Nem rootolt es szomszedos a mozgasra kijelolt mezo!");
-            this.onField.virologists.remove(this);
+            this.onField.GetVirologists().remove(this);
             this.onField = next;
-            next.virologists.add(this);
+            next.GetVirologists().add(this);
+            System.out.println("A next mezo"+this.onField.GetID());
         }
 
     }
 
     /** A Virologus eddig ismert genetic codejait elfelejti */
     public void ClearMemories() {
+        System.out.println("ide");
         this.knownCodes.clear();
     }
 

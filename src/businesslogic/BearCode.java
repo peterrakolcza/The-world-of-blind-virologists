@@ -3,6 +3,8 @@ package businesslogic;
 public class BearCode extends GeneticCode
 {
     public BearCode() {
+        super();
+        this.name="BearCode";
     }
 
     /**

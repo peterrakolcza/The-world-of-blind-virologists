@@ -5,6 +5,12 @@ package businesslogic;
  */
 public class ProtectCode extends GeneticCode {
 
+    public ProtectCode()
+    {
+        super();
+        this.name="ProtectCode";
+    }
+
     /**
      * Létrehoz egy businesslogic.Protect ágenst, majd hozzaadja a virologushoz aki letrehozta.
      * @param v virologist aki leolvasta a falról

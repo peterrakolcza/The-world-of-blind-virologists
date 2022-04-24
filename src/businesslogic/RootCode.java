@@ -5,6 +5,12 @@ package businesslogic;
  */
 public class RootCode extends GeneticCode {
 
+    public RootCode()
+    {
+        super();
+        this.name="RootCode";
+    }
+
     /**
      * Létrehoz egy businesslogic.Root ágenst, majd hozzaadja a virologushoz aki letrehozta.
      * @param v virologist aki leolvasta a falról

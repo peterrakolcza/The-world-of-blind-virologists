@@ -22,20 +22,20 @@ public class Laboratory extends Field {
         Map map = new Map();
         if(chance_of_bear==1)
         {
-            for (int i = 0; i < virologists.size(); i++) {
-                virologists.get(i).MoveRandomly();
-                virologists.get(i).AddCode(code);
+            for (int i = 0; i < GetVirologists().size(); i++) {
+                GetVirologists().get(i).MoveRandomly();
+                GetVirologists().get(i).AddCode(code);
                 Bear bear=new Bear();
-                virologists.get(i).AddAgent(bear);
+                GetVirologists().get(i).AddAgent(bear);
                 System.out.println("A virologus megfertozodott a bear virussal!");
-                map.checkIfGameIsOver(virologists.get(i).getKnownCodes());
+                map.checkIfGameIsOver(GetVirologists().get(i).getKnownCodes());
             }
         }
         else {
-            for (int i = 0; i < virologists.size(); i++) {
-                virologists.get(i).AddCode(code);
+            for (int i = 0; i < GetVirologists().size(); i++) {
+                GetVirologists().get(i).AddCode(code);
                 System.out.println("A virologushoz nem fertozodott meg bear agenssel mast tanult meg!");
-                map.checkIfGameIsOver(virologists.get(i).getKnownCodes());
+                map.checkIfGameIsOver(GetVirologists().get(i).getKnownCodes());
             }
         }
 
@@ -48,8 +48,6 @@ public class Laboratory extends Field {
     public Laboratory(GeneticCode code,int num) {
         super(num);
         this.code = code;
-        virologists = new ArrayList<Virologist>();
-        neighbours = new ArrayList<Field>();
         Random r=new Random();
         int val=r.nextInt(2);
         if(val==1)

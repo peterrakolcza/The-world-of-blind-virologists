@@ -10,6 +10,8 @@ public class DanceCode extends GeneticCode {
      *
      */
     public DanceCode() {
+        super();
+        this.name="DanceCode";
     };
 
     /**
