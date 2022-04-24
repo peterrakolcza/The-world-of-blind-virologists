@@ -1,11 +1,13 @@
 package businesslogic;
 
+
 /**
  * Reprezentálja a játékban található ágenseknek, ősosztálya a businesslogic.Dance, businesslogic.Forget, businesslogic.Protect és businesslogic.Root osztályoknak.
  * @attribute aminoacid - ennyi aminoacidba kerül
  * @attribute nucleotid - ennyi nucleotidba kerül
  */
 public abstract class Agent {
+
 
     protected String name;
     protected int aminoacid, nucleotid;

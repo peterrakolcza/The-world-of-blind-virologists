@@ -18,8 +18,8 @@ public class Storage extends Field {
     public void Action() {
         super.Action();
 
-        for (int i = 0; i < virologists.size(); i++) {
-            virologists.get(i).pickUp(aminoacid, nucleotid);
+        for (int i = 0; i < GetVirologists().size(); i++) {
+            GetVirologists().get(i).pickUp(aminoacid, nucleotid);
         }
         // actionje
     }
@@ -33,8 +33,7 @@ public class Storage extends Field {
         super(num);
         this.aminoacid = aminoacid;
         this.nucleotid = nucleotid;
-        virologists = new ArrayList<Virologist>();
-        neighbours = new ArrayList<Field>();
+
     }
 
     public int getAmino()

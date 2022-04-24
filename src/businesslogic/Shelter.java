@@ -34,9 +34,9 @@ public class Shelter extends Field {
          * Ide kell majd valami check hogy vett e mar fel equipmentet ami hasonlo
          * effektet biztosit
          */
-        for (int i = 0; i < virologists.size(); i++) {
+        for (int i = 0; i < GetVirologists().size(); i++) {
             if (equipment.size() != 0) {
-                virologists.get(i).TakeEquipment(equipment.get(0), this);
+                GetVirologists().get(i).TakeEquipment(equipment.get(0), this);
             }
             break;
         }

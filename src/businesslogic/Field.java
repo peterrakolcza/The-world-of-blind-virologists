@@ -1,5 +1,7 @@
 package businesslogic;
 
+import com.google.gson.annotations.Expose;
+
 import java.util.ArrayList;
 
 /**
@@ -9,6 +11,7 @@ import java.util.ArrayList;
  */
 public class Field {
 
+    @Expose
     protected String fieldID;
     protected ArrayList<Virologist> virologists;
     protected ArrayList<Field> neighbours;
@@ -33,6 +36,11 @@ public class Field {
         return 0;
     }
 
+    public String GetID()
+    {
+        return this.fieldID;
+    }
+
     public void SetAmino()
     {
 
@@ -41,6 +49,20 @@ public class Field {
     public void SetNucleo()
     {
 
+    }
+
+    public ArrayList<Field> GetNeigh(Field f)
+    {
+        return neighbours;
+    }
+
+    public void SetNeigh(Field f){this.neighbours.add(f);}
+
+    public void AddVirologist(Virologist v){this.virologists.add(v);}
+
+    public int NeighbourCount()
+    {
+        return neighbours.size();
     }
 
     /**
