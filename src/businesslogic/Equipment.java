@@ -11,7 +11,7 @@ public abstract class Equipment {
      */
     public void taken(Virologist by) {};
 
-    public Equipment(){};
+    public Equipment() {};
 
 
 }

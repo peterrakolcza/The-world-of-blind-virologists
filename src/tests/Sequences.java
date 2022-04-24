@@ -113,11 +113,11 @@ public class Sequences {
         virologists.add(v2);
         Field f = new Field(0);
         Field f2 = new Field(3);
-        Shelter s=new Shelter(4);
+        Shelter s = new Shelter(4);
         v2.setField(f);
         f.SetNeigh(f2);
         f.SetNeigh(s);
-        System.out.println("Virologist field id before move: "+v2.getField().GetID());
+        System.out.println("Virologist field id before move: " + v2.getField().GetID());
 
 
         for (int i = 0; i < v.getAgents().size(); i++) {
@@ -131,11 +131,11 @@ public class Sequences {
                     switch (n) {
                         case 0:
                             v2.Move(f2);
-                            System.out.println("Virologist field id after move: "+v2.getField().GetID());
+                            System.out.println("Virologist field id after move: " + v2.getField().GetID());
                             break;
                         case 1:
                             v2.Move(s);
-                            System.out.println("Virologist field id after move: "+v2.getField().GetID());
+                            System.out.println("Virologist field id after move: " + v2.getField().GetID());
                             break;
                     }
 
@@ -152,8 +152,8 @@ public class Sequences {
         Gloves glove = new Gloves();
         glove.SetEffectTime(0);
         ForgetCode fc = new ForgetCode();
-        RootCode rc=new RootCode();
-        DanceCode dc=new DanceCode();
+        RootCode rc = new RootCode();
+        DanceCode dc = new DanceCode();
         Virologist v = new Virologist(0, glove, 10, 15, 40, 1);
         Virologist v2 = new Virologist(0, glove, 10, 20, 30, 2);
         Field f = new Field(1);
@@ -235,13 +235,15 @@ public class Sequences {
         virologists.clear();
     }
 
-    /**Virologus felveszi az anyagot
-     * elvaras: virologus aminoacid es nucleotid szama 10-10*/
+    /**
+     * Virologus felveszi az anyagot
+     * elvaras: virologus aminoacid es nucleotid szama 10-10
+     */
     public void TestPickUpMaterial() {
         int num = 12;
-        Gloves glove=new Gloves();
-        Virologist v=new Virologist(0,glove,0,0,40,1);
-        Field storage = new Storage(10,10,1);
+        Gloves glove = new Gloves();
+        Virologist v = new Virologist(0, glove, 0, 0, 40, 1);
+        Field storage = new Storage(10, 10, 1);
 
 
         v.setField(storage);
@@ -253,22 +255,23 @@ public class Sequences {
         v.setField(null);
 
         virologists.add(v);
-        try{
-            game.WriteJsonVirologist(virologists,num);
-        }catch (IOException e)
-        {
+        try {
+            game.WriteJsonVirologist(virologists, num);
+        } catch (IOException e) {
             System.out.println(e);
         }
         virologists.clear();
     }
 
-    /**Virologus megprobal anyagot felvenni mikozben a max limit mar el van erve
-     * elvaras: virologus aminoacid es nucleotid szama marad 20-20*/
+    /**
+     * Virologus megprobal anyagot felvenni mikozben a max limit mar el van erve
+     * elvaras: virologus aminoacid es nucleotid szama marad 20-20
+     */
     public void TestPickUpMaterialWithLimitReached() {
         int num = 13;
-        Gloves glove=new Gloves();
-        Virologist v=new Virologist(0,glove,20,20,20,1);
-        Field storage = new Storage(10,10,1);
+        Gloves glove = new Gloves();
+        Virologist v = new Virologist(0, glove, 20, 20, 20, 1);
+        Field storage = new Storage(10, 10, 1);
 
         v.setField(storage);
         storage.Add(v);
@@ -279,22 +282,23 @@ public class Sequences {
         v.setField(null);
 
         virologists.add(v);
-        try{
-            game.WriteJsonVirologist(virologists,num);
-        }catch (IOException e)
-        {
+        try {
+            game.WriteJsonVirologist(virologists, num);
+        } catch (IOException e) {
             System.out.println(e);
         }
         virologists.clear();
     }
 
-    /**Virologus megprobal anyagot felvenni olyan mezon, ahol ez nem lehetseges
-     * elvaras: nem tortenik semmi, aminoacid es nucleotid szam marad 0*/
+    /**
+     * Virologus megprobal anyagot felvenni olyan mezon, ahol ez nem lehetseges
+     * elvaras: nem tortenik semmi, aminoacid es nucleotid szam marad 0
+     */
     public void TestPickUpMaterialOnWrongField() {
         int num = 14;
-        Gloves glove=new Gloves();
-        Virologist v=new Virologist(0,glove,0,0,40,1);
-        Field field = new Field(1);
+        Gloves glove = new Gloves();
+        Virologist v = new Virologist(0, glove, 0, 0, 40, 1);
+        Field field = new Shelter(1);
 
         v.setField(field);
         field.Add(v);
@@ -305,10 +309,87 @@ public class Sequences {
         v.setField(null);
 
         virologists.add(v);
-        try{
-            game.WriteJsonVirologist(virologists,num);
-        }catch (IOException e)
-        {
+        try {
+            game.WriteJsonVirologist(virologists, num);
+        } catch (IOException e) {
+            System.out.println(e);
+        }
+        virologists.clear();
+    }
+
+    /**
+     * A virológus megpróbál egy védőfelszerelést felvenni.
+     * elvaras: nem tortenik semmi, aminoacid es nucleotid szam marad 0
+     */
+    public void VirologistPicksUpEquipment() {
+        int num = 15;
+
+        Virologist v = new Virologist(0, null, 0, 0, 40, 1);
+        Shelter field = new Shelter(1);
+
+        v.setField(field);
+        field.Add(v);
+
+        field.AddEquipment(new Bag());
+
+        field.Action();
+
+        field.Remove(v);
+        //v.setField(null);
+
+        virologists.add(v);
+        try {
+            game.WriteJsonVirologist(virologists, num);
+        } catch (IOException e) {
+            System.out.println(e);
+        }
+        virologists.clear();
+    }
+
+    /**
+     * A virológus megpróbál egy védőfelszerelést felvenni, de nincs az óvóhelyen, nem sikerül felvenni a felszerelést.
+     * elvaras: nem tortenik semmi, aminoacid es nucleotid szam marad 0
+     */
+    public void VirologistTriesToPickUpEquipmentOutsideOfShelter() {
+        int num = 16;
+        Virologist v = new Virologist(0, null, 0, 0, 40, 1);
+        Shelter field = new Shelter(1);
+
+        v.setField(field);
+        field.Add(v);
+
+        field.Action();
+
+        virologists.add(v);
+        try {
+            game.WriteJsonVirologist(virologists, num);
+        } catch (IOException e) {
+            System.out.println(e);
+        }
+        virologists.clear();
+    }
+
+    /**
+     * A virológus megpróbál egy lebénult virológustól felszerelést vagy anyagot elvenni.
+     * elvaras: nem tortenik semmi, aminoacid es nucleotid szam marad 0
+     */
+    public void VirologistStealsMaterialOrEquipment() {
+        int num = 17;
+        Gloves glove = new Gloves();
+        Virologist v = new Virologist(0, glove, 0, 0, 40, 1);
+        Field field = new Field(1);
+
+        v.setField(field);
+        field.Add(v);
+
+        field.Action();
+        field.Remove(v);
+        v.setField(null);
+
+        virologists.add(v);
+        try {
+            game.WriteJsonVirologist(virologists, num);
+        } catch (IOException e) {
             System.out.println(e);
         }
         virologists.clear();
@@ -329,6 +410,9 @@ public class Sequences {
         System.out.println("12. TestPickUpMaterial:");
         System.out.println("13. TestPickUpMaterialWithLimitReached:");
         System.out.println("14. TestPickUpMaterialOnWrongField:");
+        System.out.println("15. VirologistPicksUpEquipment:");
+        System.out.println("16. VirologistTriesToPickUpEquipmentOutsideOfShelter:");
+        System.out.println("17. VirologistStealsMaterialOrEquipment:");
         System.out.println("-1. Kilepes...\n");
     }
 
@@ -343,13 +427,12 @@ public class Sequences {
         Sequences s = new Sequences();
 
 
-
-        while(true) {
+        while (true) {
             printMenuItems();
             System.out.println("Valassz egy tesztesetet:");
             sel = sc.nextInt();
 
-            if(sel == -1 || sel > 14)
+            if (sel == -1 || sel > 17)
                 break;
 
             switch (sel) {
@@ -398,6 +481,15 @@ public class Sequences {
                     break;
                 case 14:
                     s.TestPickUpMaterialOnWrongField();
+                    break;
+                case 15:
+                    s.VirologistPicksUpEquipment();
+                    break;
+                case 16:
+                    s.VirologistTriesToPickUpEquipmentOutsideOfShelter();
+                    break;
+                case 17:
+                    s.VirologistStealsMaterialOrEquipment();
                     break;
             }
 
