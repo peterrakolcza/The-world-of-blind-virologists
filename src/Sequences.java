@@ -1,5 +1,3 @@
-package tests;
-
 import businesslogic.*;
 
 import java.io.IOException;

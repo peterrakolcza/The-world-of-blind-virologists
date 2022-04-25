@@ -1,3 +1,6 @@
+# FUTTATÁSHOZ
+./run.ps1
+
 # The world of blind virologists
 
 Egy pusztító biológiai katasztrófában mindenki elvesztette a látását. A városban virológusok kóborolnak és gyógymódot kutatnak.
