@@ -3,6 +3,8 @@ package businesslogic;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import gui.View;
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -15,6 +17,16 @@ import java.util.ArrayList;
  */
 public class Game {
     private static Game single_instance = null;
+
+    public Game() {
+        view = new View(this);
+        //Init();
+    }
+
+    /**
+     * A kirajzolasert felelos peldany
+     */
+    private static View view;
 
     /**
      * Elindítja a játékot.
@@ -55,6 +67,14 @@ public class Game {
         FileWriter writer = new FileWriter("teszt_field" + testnum + ".json");
         writer.write(gson.toJson(virologists.get(0)));
         writer.close();
+    }
+
+    /**
+     * Belépési pont
+     */
+    public static void main(String[] args) {
+        Game game = new Game();
+        view.setVisible(true);
     }
 
 }
