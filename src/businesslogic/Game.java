@@ -1,6 +1,8 @@
 package businesslogic;
 
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import gui.View;
 
 import java.io.FileWriter;
@@ -208,7 +210,7 @@ public class Game {
 
 
 
-    /*public void WriteJsonVirologist(ArrayList<Virologist> virologists, int testnum) throws IOException {
+    public void WriteJsonVirologist(ArrayList<Virologist> virologists, int testnum) throws IOException {
         GsonBuilder builder = new GsonBuilder()
                 .setPrettyPrinting();
         Gson gson = builder.create();
@@ -233,7 +235,7 @@ public class Game {
         FileWriter writer = new FileWriter("teszt_field" + testnum + ".json");
         writer.write(gson.toJson(virologists.get(0)));
         writer.close();
-    }*/
+    }
 
     /**
      * Belépési pont

@@ -13,6 +13,13 @@ public class Gloves extends Equipment {
         by.setHasGloves(this);
     }
 
+    public Gloves()
+    {
+        super();
+        this.EffectTime=3;
+        this.name = "Gloves";
+    }
+
     public Gloves(String name)
     {
         super();
