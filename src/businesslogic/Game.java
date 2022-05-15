@@ -70,22 +70,7 @@ public class Game {
         fields.add(f2);
 
         /*initGame();
-        Random rand=new Random();
-        Gloves glove=new Gloves("gloves");
-        glove.SetEffectTime(0);
-        for(int i=0;i<rand.nextInt(1,5);i++)
-        {
-            Virologist v=new Virologist(0,glove,10,10,50,i);
-            int fieldnum=rand.nextInt(3);
-            for(int j=0;j<fields.size();j++)
-            {
-                if(fields.get(j).fieldID==String.valueOf(fieldnum))
-                {
-                    v.setField(fields.get(j));
-                }
 
-            }
-            virologists.add(v);
 
         }*/
 
@@ -95,7 +80,6 @@ public class Game {
 
     public void initGame()
     {
-        /**Sima fieldek generalasa*/
 
         equipments=new ArrayList<Equipment>();
         fields=new ArrayList<Field>();
@@ -104,6 +88,11 @@ public class Game {
         storages=new ArrayList<Storage>();
         virologists=new ArrayList<Virologist>();
 
+        Random rand=new Random();
+        Gloves glove=new Gloves("gloves");
+        glove.SetEffectTime(0);
+
+        /**Sima fieldek generalasa*/
         for(int i=0;i<4;i++)
         {
             Field f=new Field(i);
@@ -112,6 +101,20 @@ public class Game {
         }
 
         fields.get(0).neighbours.add(fields.get(1));
+
+
+
+        for(int i=0;i<rand.nextInt(1,5);i++) {
+            Virologist v = new Virologist(0, glove, 10, 10, 50, i);
+            int fieldnum = rand.nextInt(3);
+            for (int j = 0; j < fields.size(); j++) {
+                if (fields.get(j).fieldID == String.valueOf(fieldnum)) {
+                    v.setField(fields.get(j));
+                }
+
+            }
+            virologists.add(v);
+        }
 
         /**Equipmentek létrehozása a shelterekhez*/
         Cape cape=new Cape("cape");
@@ -145,8 +148,6 @@ public class Game {
 
         }
         System.out.println("Az equipmentek:"+shelters.get(3).GetEquipment().name);
-
-        Random rand=new Random();
 
         for(int i=8;i<11;i++)
         {
@@ -182,6 +183,8 @@ public class Game {
 
 
     }
+
+
 
 
     /**

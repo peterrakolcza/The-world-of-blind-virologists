@@ -100,6 +100,7 @@ public class View extends JFrame {
         super("The world of blind virologists");
 
         this.game = game;
+        game.initGame();
         this.setMinimumSize(new Dimension(1000, 650));
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.setResizable(false);
@@ -161,6 +162,9 @@ public class View extends JFrame {
         buildRobotButton.addActionListener(e -> handlers.BuildRobotClicked());
         buildGateButton.addActionListener(e -> handlers.BuildGateClicked());*/
 
+        //game.initGame();
+        activeVirologistLabel.setText("Active Virologist: "+game.getVirologists().get(0).getName());
+
         JPanel buttonsFirstRow = new JPanel(new FlowLayout());
         JPanel buttonsSecondRow = new JPanel(new FlowLayout());
         buttonsFirstRow.setBackground(grayColor);
@@ -188,6 +192,12 @@ public class View extends JFrame {
 
         this.add(containerPanel);
         TestDatas();
+    }
+
+    /**Ide kellene a jatek logika*/
+    public void GameLoop()
+    {
+
     }
 
     /**
