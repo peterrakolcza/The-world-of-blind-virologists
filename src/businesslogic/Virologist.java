@@ -18,6 +18,8 @@ public class Virologist {
 
     
     private String activeVirologist;
+
+    private int id;
     
     
     /** A vedettseget hatasfokat jelzo double ertek */
@@ -53,6 +55,7 @@ public class Virologist {
     public Virologist(double protection, Gloves glove, int aminoacid, int nucleotid, int maxamout,int id) {
 
         this.activeVirologist="Virologist"+id;
+        this.id = id;
         this.protection = protection;
         this.glove = glove;
         this.aminoacid = aminoacid;
@@ -71,6 +74,10 @@ public class Virologist {
     public String getName()
     {
         return activeVirologist;
+    }
+
+    public int getid(){
+        return id;
     }
 
     public void setProtection(double protection) {
