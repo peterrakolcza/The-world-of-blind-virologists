@@ -1,6 +1,6 @@
 package businesslogic;
 
-import com.google.gson.annotations.Expose;
+//import com.google.gson.annotations.Expose;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -66,6 +66,11 @@ public class Virologist {
         hasActiveAx = false;
         this.onField=null;
 
+    }
+
+    public String getName()
+    {
+        return activeVirologist;
     }
 
     public void setProtection(double protection) {
@@ -261,4 +266,6 @@ public class Virologist {
         }
 
     }
+
+
 }
