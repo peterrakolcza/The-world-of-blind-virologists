@@ -1,9 +1,11 @@
 package gui;
 
+import businesslogic.Field;
 import businesslogic.Game;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class View extends JFrame {
 
@@ -38,6 +40,16 @@ public class View extends JFrame {
      * Az aktualis informaciokat szovegesen megjelenito panel
      */
     private static final JPanel infoPanel = new JPanel();
+
+
+
+    /**Pelda a gameben inicializalt adatok eleresere*/
+    public void TestDatas()
+    {
+        game.initGame();
+        ArrayList<Field> fields=game.getFields();
+        System.out.println("Field_DATA:"+ fields.get(0).GetID()+"szomszedeok"+fields.get(0).GetNeighbours().get(0).GetID());
+    }
 
     /**
      * Az informacios resz bal oldali resze
@@ -175,6 +187,7 @@ public class View extends JFrame {
         //containerPanel.add(mainPanel, BorderLayout.CENTER);
 
         this.add(containerPanel);
+        TestDatas();
     }
 
     /**

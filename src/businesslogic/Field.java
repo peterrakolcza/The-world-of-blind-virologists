@@ -1,6 +1,6 @@
 package businesslogic;
 
-import com.google.gson.annotations.Expose;
+//import com.google.gson.annotations.Expose;
 
 import java.util.ArrayList;
 
@@ -11,7 +11,7 @@ import java.util.ArrayList;
  */
 public class Field {
 
-    @Expose
+    //@Expose
     protected String fieldID;
     protected ArrayList<Virologist> virologists;
     protected ArrayList<Field> neighbours;
@@ -102,5 +102,10 @@ public class Field {
      */
     public void Action() {
         // action
+    }
+
+    public Equipment GetEquipment()
+    {
+        return null;
     }
 }

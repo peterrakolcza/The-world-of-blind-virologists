@@ -13,10 +13,11 @@ public class Gloves extends Equipment {
         by.setHasGloves(this);
     }
 
-    public Gloves()
+    public Gloves(String name)
     {
         super();
         this.EffectTime=3;
+        this.name=name;
     }
 
     public void SetEffectTime(int num)
