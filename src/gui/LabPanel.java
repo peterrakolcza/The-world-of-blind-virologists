@@ -7,12 +7,13 @@ import businesslogic.Storage;
 import javax.swing.*;
 import java.awt.*;
 
-public class LabPanel extends JPanel {
+public class LabPanel extends FieldPanel {
 
     private Laboratory field;
     private int panelsize = 60;
 
     public LabPanel(Laboratory f) {
+        super(f);
         this.field = f;
         this.setSize(panelsize, panelsize);
         this.setBackground(new Color(0, 0, 0, 0));

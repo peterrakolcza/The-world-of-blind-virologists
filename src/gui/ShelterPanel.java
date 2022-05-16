@@ -6,13 +6,14 @@ import businesslogic.Shelter;
 import javax.swing.*;
 import java.awt.*;
 
-public class ShelterPanel extends JPanel
+public class ShelterPanel extends FieldPanel
 {
 
     private Shelter field;
     private int panelsize = 60;
 
     public ShelterPanel(Shelter f) {
+        super(f);
         this.field = f;
         this.setSize(panelsize, panelsize);
         this.setBackground(new Color(0,0,0,0));
