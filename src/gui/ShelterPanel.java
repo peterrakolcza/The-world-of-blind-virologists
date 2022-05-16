@@ -10,7 +10,7 @@ public class ShelterPanel extends JPanel
 {
 
     private Shelter field;
-    private int panelsize = 30;
+    private int panelsize = 60;
 
     public ShelterPanel(Shelter f) {
         this.field = f;
@@ -34,7 +34,7 @@ public class ShelterPanel extends JPanel
         g2d.setPaint(Color.darkGray);
         Font font = new Font("Arial", Font.PLAIN, 10);
         g2d.setFont(font);
-        g2d.drawString("Shelter" , 2, 12);
+        g2d.drawString("Sh"+field.GetID() , 10, 20);
     }
 }
 

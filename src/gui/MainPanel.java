@@ -44,8 +44,23 @@ public class MainPanel extends JPanel {
 
         for(int i = graphicObjects.size()-1; i >= 0; --i){
             this.add(graphicObjects.get(i));
-            int ranX = 150+i*(100);
-            int ranY = 300+i*(20);
+
+            int ranY,ranX;
+            if(i==0)
+            {
+                ranY = 100;
+                ranX = 100;
+            }
+            else if(i%2==0 && i!=0)
+            {
+                ranY = 100;
+                ranX = 100+i*(100);
+            }
+            else{
+                ranY = 100+80;
+                ranX = 100+100*i;
+            }
+
             graphicObjects.get(i).setLocation(ranX, ranY  );
 
         }

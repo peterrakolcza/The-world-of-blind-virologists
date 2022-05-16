@@ -1,18 +1,21 @@
 package gui;
-import businesslogic.*;
+
+import businesslogic.Field;
+import businesslogic.Shelter;
+import businesslogic.Storage;
+
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
 
-public class FieldPanel extends JPanel {
-    
-    private Field field;
+public class StoragePanel extends JPanel {
+
+    private Storage field;
     private int panelsize = 60;
 
-    public FieldPanel(Field f) {
+    public StoragePanel(Storage f) {
         this.field = f;
         this.setSize(panelsize, panelsize);
-        this.setBackground(new Color(0,0,0,0));
+        this.setBackground(new Color(0, 0, 0, 0));
 
     }
 
@@ -24,14 +27,13 @@ public class FieldPanel extends JPanel {
     public void paint(Graphics g) {
         super.paint(g);
 
-        Graphics2D g2d = (Graphics2D)g;
-        g2d.setPaint(Color.LIGHT_GRAY);
+        Graphics2D g2d = (Graphics2D) g;
+        g2d.setPaint(Color.GREEN);
         g2d.fillOval(0, 0, panelsize, panelsize);
 
         g2d.setPaint(Color.darkGray);
         Font font = new Font("Arial", Font.PLAIN, 10);
         g2d.setFont(font);
-        g2d.drawString("F"+field.GetID() , 10, 20);
-        }
+        g2d.drawString("St"+field.GetID(), 10, 20);
+    }
 }
-

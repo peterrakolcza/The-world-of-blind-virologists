@@ -4,7 +4,9 @@ import businesslogic.*;
 
 import javax.swing.*;
 import java.awt.*;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class View extends JFrame {
 
@@ -111,19 +113,57 @@ public class View extends JFrame {
         this.setResizable(false);
 
         mainPanel = new MainPanel(this);
+
+        /**Annak ellenőrzése, hogy van e ilyen mező már létrehozva*/
+        ArrayList<String > existing_fields=new ArrayList<String>();
         /**Sima mezők mainpanelhez adása*/
         for(int i=0;i<game.getFields().size();i++)
         {
             FieldPanel f=new FieldPanel(game.getFields().get(i));
             mainPanel.AddGraphicObject(f);
+
+
+            if(game.getFields().get(i).GetNeighbours().size()!=0)
+            {
+                for(int j=0;j<game.getFields().get(i).GetNeighbours().size();j++)
+                {
+                    /**Ha Shelter a szomszedos mezo*/
+                    if(game.getFields().get(i).GetNeighbours().get(j)==game.getShelters().get(j) && !existing_fields.contains(game.getShelters().get(j).GetID()))
+                    {
+                        ShelterPanel sh=new ShelterPanel(game.getShelters().get(j));
+                        mainPanel.AddGraphicObject(sh);
+                        existing_fields.add(game.getShelters().get(j).GetID());
+                    }
+                    /**Ha Storage a szomszedos mezo*/
+                    else if(game.getFields().get(i).GetNeighbours().get(j)==game.getStorages().get(j) && !existing_fields.contains(game.getStorages().get(j).GetID()))
+                    {
+                        System.out.println("ide");
+                        StoragePanel sh=new StoragePanel(game.getStorages().get(j));
+                        mainPanel.AddGraphicObject(sh);
+                        existing_fields.add(game.getStorages().get(j).GetID());
+
+                    }
+                    /**Ha Laboratory a szomszedos mezo*/
+                    else if(game.getFields().get(i).GetNeighbours().get(j)==game.getLabs().get(j) && !existing_fields.contains(game.getLabs().get(j).GetID()))
+                    {
+                        LabPanel sh=new LabPanel(game.getLabs().get(j));
+                        mainPanel.AddGraphicObject(sh);
+                        existing_fields.add(game.getLabs().get(j).GetID());
+
+                    }
+
+
+                }
+            }
+
         }
 
         /**Shelterek mainpanelhez adása*/
-        for(int j=0;j<game.getShelters().size();j++)
+        /*for(int j=0;j<game.getShelters().size();j++)
         {
             ShelterPanel sh=new ShelterPanel(game.getShelters().get(j));
             mainPanel.AddGraphicObject(sh);
-        }
+        }*/
         this.add(mainPanel);
 
         //newMenuItem.addActionListener(e -> handlers.NewClicked());

@@ -76,20 +76,6 @@ public class Game {
         labs=new ArrayList<Laboratory>();
         storages=new ArrayList<Storage>();
         virologists=new ArrayList<Virologist>();
-        Field f=new Field(1);
-        Field f2=new Field(2);
-
-        fields.add(f);
-        f.SetNeigh(f2);
-        fields.add(f2);
-
-        /*initGame();
-
-
-        }*/
-        
-
-        //Init();
     }
 
     public void initGame()
@@ -114,7 +100,7 @@ public class Game {
             System.out.println("Fn"+fields.get(i).GetID());
         }
 
-        fields.get(0).neighbours.add(fields.get(1));
+
 
 
 
@@ -130,6 +116,7 @@ public class Game {
             }
             virologists.add(v);
         }
+
 
         /**Aktiv virolous beallitasa */
         activeVirologist  = virologists.get(0);
@@ -191,17 +178,32 @@ public class Game {
         labs.add(lab2);
         labs.add(lab3);
 
-        lab2.neighbours.add(fields.get(1));
+        /**Szomszédos mezők beállítása*/
+
+        /**Field0 szomszedja a Field1*/
+        fields.get(0).neighbours.add(fields.get(1));
+        /**Field1 szomszedja a Shelter4 es a Field0*/
+        fields.get(1).neighbours.add(shelters.get(0));
+        fields.get(1).neighbours.add(fields.get(0));
+        /**Shelter4 szomszedja a Field1 és a Field2*/
+        shelters.get(0).neighbours.add(fields.get(1));
+        shelters.get(0).neighbours.add(fields.get(2));
+
+        /**A Field2 szomszedja a Shelter4 és a Field3*/
+        fields.get(2).neighbours.add(shelters.get(0));
+        fields.get(2).neighbours.add(storages.get(0));
+
+        fields.get(3).neighbours.add(shelters.get(1));
+
+
+        /**lab2.neighbours.add(fields.get(1));
         lab2.neighbours.add(shelters.get(2));
 
         lab.neighbours.add(fields.get(0));
         lab.neighbours.add(storages.get(2));
         lab.neighbours.add(labs.get(1));
 
-        lab3.neighbours.add(lab2);
-
-
-
+        lab3.neighbours.add(lab2);*/
 
     }
 
