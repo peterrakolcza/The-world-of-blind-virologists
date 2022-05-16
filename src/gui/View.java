@@ -1,9 +1,6 @@
 package gui;
 
-import businesslogic.Equipment;
-import businesslogic.Field;
-import businesslogic.Game;
-import businesslogic.Virologist;
+import businesslogic.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -113,7 +110,21 @@ public class View extends JFrame {
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.setResizable(false);
 
-        //mainPanel = new MainPanel(this);
+        mainPanel = new MainPanel(this);
+        /**Sima mezők mainpanelhez adása*/
+        for(int i=0;i<game.getFields().size();i++)
+        {
+            FieldPanel f=new FieldPanel(game.getFields().get(i));
+            mainPanel.AddGraphicObject(f);
+        }
+
+        /**Shelterek mainpanelhez adása*/
+        for(int j=0;j<game.getShelters().size();j++)
+        {
+            ShelterPanel sh=new ShelterPanel(game.getShelters().get(j));
+            mainPanel.AddGraphicObject(sh);
+        }
+        this.add(mainPanel);
 
         //newMenuItem.addActionListener(e -> handlers.NewClicked());
 
@@ -199,11 +210,12 @@ public class View extends JFrame {
         buttonsSecondRow.add(geneticCode2Button);
         buttonsSecondRow.add(geneticCode3Button);
 
-        //mainPanel.setBackground(spaceBlue);
+        mainPanel.setBackground(green);
         menuContainer.setBackground(green);
 
         containerPanel.add(menuContainer, BorderLayout.NORTH);
         containerPanel.add(infoPanel, BorderLayout.SOUTH);
+        containerPanel.add(mainPanel,BorderLayout.CENTER);
         //containerPanel.add(mainPanel, BorderLayout.CENTER);
 
         this.add(containerPanel);

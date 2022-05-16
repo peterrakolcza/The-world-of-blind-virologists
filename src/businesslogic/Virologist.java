@@ -71,6 +71,11 @@ public class Virologist {
 
     }
 
+    public boolean GetRooted()
+    {
+        return rooted;
+    }
+
     public String getName()
     {
         return activeVirologist;

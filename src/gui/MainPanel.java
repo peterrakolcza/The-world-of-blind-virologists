@@ -29,7 +29,7 @@ public class MainPanel extends JPanel {
         this.setLayout(null);
         this.view = view;
         backGround.setSize(new Dimension(1000, 492));
-        backGround.setBackground(new Color(61, 45, 182,255));
+        backGround.setBackground(new Color(204, 204, 255,255));
 
     }
 
@@ -40,11 +40,12 @@ public class MainPanel extends JPanel {
     public void paint(Graphics g) {
         g.clearRect(0,0,1000,492);
         super.paint(g);
+        Random rand=new Random();
 
         for(int i = graphicObjects.size()-1; i >= 0; --i){
             this.add(graphicObjects.get(i));
-            int ranX = 150;
-            int ranY = 300;
+            int ranX = 150+i*(100);
+            int ranY = 300+i*(20);
             graphicObjects.get(i).setLocation(ranX, ranY  );
 
         }
