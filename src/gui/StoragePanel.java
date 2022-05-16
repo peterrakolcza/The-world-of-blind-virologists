@@ -1,10 +1,7 @@
 package gui;
 
 import businesslogic.Field;
-import businesslogic.Shelter;
 import businesslogic.Storage;
-
-import javax.swing.*;
 import java.awt.*;
 
 public class StoragePanel extends FieldPanel {

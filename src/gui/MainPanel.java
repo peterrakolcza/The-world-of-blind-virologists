@@ -3,7 +3,6 @@ package gui;
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.Random;
 
 /**
  * Ezen a penelen jelennek meg a jatek elemeihez tartozo panelek

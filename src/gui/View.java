@@ -4,14 +4,11 @@ import businesslogic.*;
 
 import javax.swing.*;
 import java.awt.*;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class View extends JFrame {
 
-
-    private static final JPanel menuContainer = new JPanel(new FlowLayout(FlowLayout.LEFT,0,0));
+    private static final JPanel menuContainer = new JPanel(new FlowLayout(FlowLayout.LEFT, 0, 0));
 
     /**
      * Menubar, ami tartalmazza a menut
@@ -21,12 +18,12 @@ public class View extends JFrame {
     /**
      * Jatek menu
      */
-    private static final JMenu  gameMenu = new JMenu("Game");
+    private static final JMenu gameMenu = new JMenu("Game");
 
     /**
      * Menupont, amivel uj jatekot lehet kezdeni
      */
-    private static final JMenuItem  newMenuItem = new JMenuItem("New game");
+    private static final JMenuItem newMenuItem = new JMenuItem("New game");
 
     /**
      * Elrendezest segito panel
@@ -48,18 +45,17 @@ public class View extends JFrame {
     private Field selectedField = null;
     private Equipment selectedEquipment = null;
 
-     /**
+    /**
      * A jatek amit megjelenit
      */
     private Game game;
 
-
-    /**Pelda a gameben inicializalt adatok eleresere*/
-    public void TestDatas()
-    {
+    /** Pelda a gameben inicializalt adatok eleresere */
+    public void TestDatas() {
         game.initGame();
-        ArrayList<Field> fields=game.getFields();
-        System.out.println("Field_DATA:"+ fields.get(0).GetID()+"szomszedeok"+fields.get(0).GetNeighbours().get(0).GetID());
+        ArrayList<Field> fields = game.getFields();
+        System.out.println(
+                "Field_DATA:" + fields.get(0).GetID() + "szomszedeok" + fields.get(0).GetNeighbours().get(0).GetID());
     }
 
     /**
@@ -77,7 +73,7 @@ public class View extends JFrame {
     private static final JLabel clickedObjectLabel = new JLabel("Clicked object: null");
 
     private static final JPanel activeVirologistInfoPanel2 = new JPanel();
-    private static final JLabel activeVirologistNucleotidLabel = new JLabel("Nucleotids: 0" );
+    private static final JLabel activeVirologistNucleotidLabel = new JLabel("Nucleotids: 0");
     private static final JLabel activeVirologistAminoacidsLabel = new JLabel("Aminoacids: 0");
     private static final JLabel activeVirologistAxeLabel = new JLabel("Has Axe: no");
 
@@ -99,7 +95,6 @@ public class View extends JFrame {
     private static final Color almostWhite = new Color(230, 230, 230);
     private static final Color green = Color.GREEN;
 
-   
     /**
      * View konstruktora, inizializalja a megjeleno elemeket
      */
@@ -114,54 +109,55 @@ public class View extends JFrame {
 
         mainPanel = new MainPanel(this);
 
-        /**Annak ellenőrzése, hogy van e ilyen mező már létrehozva*/
-        ArrayList<String > existing_fields=new ArrayList<String>();
-        /**Sima mezők mainpanelhez adása*/
+        /** Annak ellenőrzése, hogy van e ilyen mező már létrehozva */
+        ArrayList<String> existing_fields = new ArrayList<String>();
+        /** Sima mezők mainpanelhez adása */
 
-        FieldPanel fp=new FieldPanel(game.getFields().get(0));
+        FieldPanel fp = new FieldPanel(game.getFields().get(0));
         mainPanel.AddGraphicObject(fp);
-        ShelterPanel sp=new ShelterPanel(game.getShelters().get(1));
+        ShelterPanel sp = new ShelterPanel(game.getShelters().get(1));
         mainPanel.AddGraphicObject(sp);
-        FieldPanel fp2=new FieldPanel(game.getFields().get(2));
+        FieldPanel fp2 = new FieldPanel(game.getFields().get(2));
         mainPanel.AddGraphicObject(fp2);
-        StoragePanel st1=new StoragePanel(game.getStorages().get(2));
+        StoragePanel st1 = new StoragePanel(game.getStorages().get(2));
         mainPanel.AddGraphicObject(st1);
-        ShelterPanel shp3=new ShelterPanel(game.getShelters().get(3));
+        ShelterPanel shp3 = new ShelterPanel(game.getShelters().get(3));
         mainPanel.AddGraphicObject(shp3);
-        LabPanel lb=new LabPanel(game.getLabs().get(1));
+        LabPanel lb = new LabPanel(game.getLabs().get(1));
         mainPanel.AddGraphicObject(lb);
-        ShelterPanel sp2=new ShelterPanel(game.getShelters().get(0));
+        ShelterPanel sp2 = new ShelterPanel(game.getShelters().get(0));
         mainPanel.AddGraphicObject(sp2);
-        LabPanel lb2=new LabPanel(game.getLabs().get(0));
+        LabPanel lb2 = new LabPanel(game.getLabs().get(0));
         mainPanel.AddGraphicObject(lb2);
-        StoragePanel st2=new StoragePanel(game.getStorages().get(1));
+        StoragePanel st2 = new StoragePanel(game.getStorages().get(1));
         mainPanel.AddGraphicObject(st2);
-        StoragePanel sp3=new StoragePanel(game.getStorages().get(0));
+        StoragePanel sp3 = new StoragePanel(game.getStorages().get(0));
         mainPanel.AddGraphicObject(sp3);
-        LabPanel lb3=new LabPanel(game.getLabs().get(2));
+        LabPanel lb3 = new LabPanel(game.getLabs().get(2));
         mainPanel.AddGraphicObject(lb3);
-        FieldPanel fp3=new FieldPanel(game.getLabs().get(1));
+        FieldPanel fp3 = new FieldPanel(game.getLabs().get(1));
         mainPanel.AddGraphicObject(fp3);
-        FieldPanel pf4=new FieldPanel(game.getFields().get(3));
+        FieldPanel pf4 = new FieldPanel(game.getFields().get(3));
         mainPanel.AddGraphicObject(pf4);
-        ShelterPanel sph3=new ShelterPanel(game.getShelters().get(2));
+        ShelterPanel sph3 = new ShelterPanel(game.getShelters().get(2));
         mainPanel.AddGraphicObject(sph3);
 
         for (int k = 0; k < game.getVirologists().size(); k++) {
             VirologistPanel vp = new VirologistPanel(game.getVirologists().get(k));
             mainPanel.AddGraphicVirologist(vp);
         }
-        
 
-        /**Shelterek mainpanelhez adása*/
-        /*for(int j=0;j<game.getShelters().size();j++)
-        {
-            ShelterPanel sh=new ShelterPanel(game.getShelters().get(j));
-            mainPanel.AddGraphicObject(sh);
-        }*/
+        /** Shelterek mainpanelhez adása */
+        /*
+         * for(int j=0;j<game.getShelters().size();j++)
+         * {
+         * ShelterPanel sh=new ShelterPanel(game.getShelters().get(j));
+         * mainPanel.AddGraphicObject(sh);
+         * }
+         */
         this.add(mainPanel);
 
-        //newMenuItem.addActionListener(e -> handlers.NewClicked());
+        // newMenuItem.addActionListener(e -> handlers.NewClicked());
 
         gameMenu.add(newMenuItem);
         menuBar.add(gameMenu);
@@ -206,7 +202,6 @@ public class View extends JFrame {
         infoPanelLeft.add(Box.createHorizontalStrut(20));
         infoPanelLeft.add(clickedObjectInfoPanel);
 
-
         newMenuItem.addActionListener(e -> eventhandling.onNewGameClicked());
         stepButton.addActionListener(e -> eventhandling.onStepClicked());
         skipButton.addActionListener(e -> eventhandling.onSkipClicked());
@@ -216,7 +211,7 @@ public class View extends JFrame {
         geneticCode2Button.addActionListener(e -> eventhandling.onGeneticCode2Clicked());
         geneticCode3Button.addActionListener(e -> eventhandling.onGeneticCode3Clicked());
 
-        activeVirologistLabel.setText("Active Virologist: "+game.getActiveVirologist().getName());
+        activeVirologistLabel.setText("Active Virologist: " + game.getActiveVirologist().getName());
 
         JPanel buttonsFirstRow = new JPanel(new FlowLayout());
         JPanel buttonsSecondRow = new JPanel(new FlowLayout());
@@ -226,7 +221,6 @@ public class View extends JFrame {
         infoPanelRight.setLayout(new BoxLayout(infoPanelRight, BoxLayout.PAGE_AXIS));
         infoPanelRight.add(buttonsFirstRow);
         infoPanelRight.add(buttonsSecondRow);
-
 
         buttonsFirstRow.add(stepButton);
         buttonsFirstRow.add(pickUpButton);
@@ -241,16 +235,15 @@ public class View extends JFrame {
 
         containerPanel.add(menuContainer, BorderLayout.NORTH);
         containerPanel.add(infoPanel, BorderLayout.SOUTH);
-        containerPanel.add(mainPanel,BorderLayout.CENTER);
-        //containerPanel.add(mainPanel, BorderLayout.CENTER);
+        containerPanel.add(mainPanel, BorderLayout.CENTER);
+        // containerPanel.add(mainPanel, BorderLayout.CENTER);
 
         this.add(containerPanel);
         TestDatas();
     }
 
-    /**Ide kellene a jatek logika*/
-    public void GameLoop()
-    {
+    /** Ide kellene a jatek logika */
+    public void GameLoop() {
 
     }
 
@@ -272,7 +265,6 @@ public class View extends JFrame {
         return selectedVirologist;
     }
 
-    
     public void SetSelectedVirologist(Virologist selectedVirologist) {
         this.selectedVirologist = selectedVirologist;
     }
@@ -281,7 +273,6 @@ public class View extends JFrame {
         return selectedField;
     }
 
-    
     public void SetSelectedField(Field selectedField) {
         this.selectedField = selectedField;
     }
@@ -290,7 +281,6 @@ public class View extends JFrame {
         return selectedEquipment;
     }
 
-    
     public void SetSelectedEquipment(Equipment selectedEquipment) {
         this.selectedEquipment = selectedEquipment;
     }
@@ -298,32 +288,34 @@ public class View extends JFrame {
     /**
      * Beallitja a kapott ertekre a selectedVirologist-ot
      */
-    public void VirologistClicked(Virologist v){
+    public void VirologistClicked(Virologist v) {
         selectedVirologist = v;
-        //Refresh();
+        // Refresh();
     }
 
-    public void EquipmentClicked(Equipment e){
+    public void EquipmentClicked(Equipment e) {
         selectedEquipment = e;
-        //Refresh();
+        // Refresh();
     }
 
-    public void FieldClicked(Field f){
+    public void FieldClicked(Field f) {
         selectedField = f;
-        //Refresh();
+        // Refresh();
     }
-
 
     /**
      * Leszdi a jatek paneleit a mainPanel-rol
      */
-    public void Clear(){
-        //mainPanel.RemoveAllGraphicObject();
-        //Refresh();
+    public void Clear() {
+        // mainPanel.RemoveAllGraphicObject();
+        // Refresh();
     }
 
     public void Refresh() {
         System.out.println("refresssshhh");
-        activeVirologistNucleotidLabel.setText("Nucleotids: " + game.getActiveVirologist().getNucleo()); //= new JLabel("Nucleotids: " + game.getActiveVirologist().getNucleo());
+        activeVirologistNucleotidLabel.setText("Nucleotids: " + game.getActiveVirologist().getNucleo()); // = new
+                                                                                                         // JLabel("Nucleotids:
+                                                                                                         // " +
+                                                                                                         // game.getActiveVirologist().getNucleo());
     }
 }

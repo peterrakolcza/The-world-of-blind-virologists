@@ -2,8 +2,6 @@ package gui;
 
 import businesslogic.Field;
 import businesslogic.Shelter;
-
-import javax.swing.*;
 import java.awt.*;
 
 public class ShelterPanel extends FieldPanel

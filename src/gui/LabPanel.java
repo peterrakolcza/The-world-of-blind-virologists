@@ -2,9 +2,6 @@ package gui;
 
 import businesslogic.Field;
 import businesslogic.Laboratory;
-import businesslogic.Storage;
-
-import javax.swing.*;
 import java.awt.*;
 
 public class LabPanel extends FieldPanel {
