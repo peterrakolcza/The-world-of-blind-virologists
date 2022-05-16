@@ -126,6 +126,8 @@ public class View extends JFrame {
         mainPanel.AddGraphicObject(fp2);
         StoragePanel st1=new StoragePanel(game.getStorages().get(2));
         mainPanel.AddGraphicObject(st1);
+        ShelterPanel shp3=new ShelterPanel(game.getShelters().get(3));
+        mainPanel.AddGraphicObject(shp3);
         LabPanel lb=new LabPanel(game.getLabs().get(1));
         mainPanel.AddGraphicObject(lb);
         ShelterPanel sp2=new ShelterPanel(game.getShelters().get(0));
@@ -134,10 +136,16 @@ public class View extends JFrame {
         mainPanel.AddGraphicObject(lb2);
         StoragePanel st2=new StoragePanel(game.getStorages().get(1));
         mainPanel.AddGraphicObject(st2);
-        FieldPanel fp3=new FieldPanel(game.getLabs().get(1));
-        mainPanel.AddGraphicObject(fp3);
+        StoragePanel sp3=new StoragePanel(game.getStorages().get(0));
+        mainPanel.AddGraphicObject(sp3);
         LabPanel lb3=new LabPanel(game.getLabs().get(2));
         mainPanel.AddGraphicObject(lb3);
+        FieldPanel fp3=new FieldPanel(game.getLabs().get(1));
+        mainPanel.AddGraphicObject(fp3);
+        FieldPanel pf4=new FieldPanel(game.getFields().get(3));
+        mainPanel.AddGraphicObject(pf4);
+        ShelterPanel sph3=new ShelterPanel(game.getShelters().get(2));
+        mainPanel.AddGraphicObject(sph3);
 
 
         /**Shelterek mainpanelhez adása*/

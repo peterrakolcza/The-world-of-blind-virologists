@@ -40,6 +40,7 @@ public class MainPanel extends JPanel {
     public void paint(Graphics g) {
         g.clearRect(0,0,1000,492);
         super.paint(g);
+        int ct=0;
 
         for(int i = graphicObjects.size()-1; i >= 0; --i){
             this.add(graphicObjects.get(i));
@@ -56,21 +57,31 @@ public class MainPanel extends JPanel {
                 ranY = 100;
                 ranX = 100+i*(100);
             }
-            if(i%2==0 && i>=6)
-            {
-                ranX=800-i*100;
-                ranY=300;
-            }
-            if(i%2==1 && i>=6)
-            {
-                ranX=800-i*100;
-                ranY=200+100;
-            }
+
+           if(i==7)
+           {
+               ranX=700;
+               ranY=270;
+           }
+
             if(i%2==1 && i<7){
                 ranY = 100+80;
                 ranX = 100+100*i;
             }
-            graphicObjects.get(i).setLocation(ranX, ranY  );
+            if(i>7 && i%2==0)
+            {
+                ct++;
+                ranY = 350-80;
+                ranX = 700-ct*100;
+            }
+            if(i>7 && i%2==1)
+            {
+                ct++;
+                ranY = 350;
+                ranX = 700-ct*100;
+            }
+
+            graphicObjects.get(i).setLocation(ranX, ranY );
 
         }
         this.add(backGround);
