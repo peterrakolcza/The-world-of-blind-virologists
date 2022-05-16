@@ -40,27 +40,36 @@ public class MainPanel extends JPanel {
     public void paint(Graphics g) {
         g.clearRect(0,0,1000,492);
         super.paint(g);
-        Random rand=new Random();
 
         for(int i = graphicObjects.size()-1; i >= 0; --i){
             this.add(graphicObjects.get(i));
 
-            int ranY,ranX;
+            int ranY=0;
+            int ranX=0;
             if(i==0)
             {
                 ranY = 100;
                 ranX = 100;
             }
-            else if(i%2==0 && i!=0)
+           if(i%2==0 && i!=0 && i<7)
             {
                 ranY = 100;
                 ranX = 100+i*(100);
             }
-            else{
+            if(i%2==0 && i>=6)
+            {
+                ranX=800-i*100;
+                ranY=300;
+            }
+            if(i%2==1 && i>=6)
+            {
+                ranX=800-i*100;
+                ranY=200+100;
+            }
+            if(i%2==1 && i<7){
                 ranY = 100+80;
                 ranX = 100+100*i;
             }
-
             graphicObjects.get(i).setLocation(ranX, ranY  );
 
         }

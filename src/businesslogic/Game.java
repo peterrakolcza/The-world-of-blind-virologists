@@ -192,6 +192,7 @@ public class Game {
         /**A Field2 szomszedja a Shelter4 és a Field3*/
         fields.get(2).neighbours.add(shelters.get(0));
         fields.get(2).neighbours.add(storages.get(0));
+        storages.get(1).neighbours.add(fields.get(2));
 
         fields.get(3).neighbours.add(shelters.get(1));
 

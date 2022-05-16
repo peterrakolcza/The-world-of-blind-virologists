@@ -117,46 +117,28 @@ public class View extends JFrame {
         /**Annak ellenőrzése, hogy van e ilyen mező már létrehozva*/
         ArrayList<String > existing_fields=new ArrayList<String>();
         /**Sima mezők mainpanelhez adása*/
-        for(int i=0;i<game.getFields().size();i++)
-        {
-            FieldPanel f=new FieldPanel(game.getFields().get(i));
-            mainPanel.AddGraphicObject(f);
 
+        FieldPanel fp=new FieldPanel(game.getFields().get(0));
+        mainPanel.AddGraphicObject(fp);
+        ShelterPanel sp=new ShelterPanel(game.getShelters().get(1));
+        mainPanel.AddGraphicObject(sp);
+        FieldPanel fp2=new FieldPanel(game.getFields().get(2));
+        mainPanel.AddGraphicObject(fp2);
+        StoragePanel st1=new StoragePanel(game.getStorages().get(2));
+        mainPanel.AddGraphicObject(st1);
+        LabPanel lb=new LabPanel(game.getLabs().get(1));
+        mainPanel.AddGraphicObject(lb);
+        ShelterPanel sp2=new ShelterPanel(game.getShelters().get(0));
+        mainPanel.AddGraphicObject(sp2);
+        LabPanel lb2=new LabPanel(game.getLabs().get(0));
+        mainPanel.AddGraphicObject(lb2);
+        StoragePanel st2=new StoragePanel(game.getStorages().get(1));
+        mainPanel.AddGraphicObject(st2);
+        FieldPanel fp3=new FieldPanel(game.getLabs().get(1));
+        mainPanel.AddGraphicObject(fp3);
+        LabPanel lb3=new LabPanel(game.getLabs().get(2));
+        mainPanel.AddGraphicObject(lb3);
 
-            if(game.getFields().get(i).GetNeighbours().size()!=0)
-            {
-                for(int j=0;j<game.getFields().get(i).GetNeighbours().size();j++)
-                {
-                    /**Ha Shelter a szomszedos mezo*/
-                    if(game.getFields().get(i).GetNeighbours().get(j)==game.getShelters().get(j) && !existing_fields.contains(game.getShelters().get(j).GetID()))
-                    {
-                        ShelterPanel sh=new ShelterPanel(game.getShelters().get(j));
-                        mainPanel.AddGraphicObject(sh);
-                        existing_fields.add(game.getShelters().get(j).GetID());
-                    }
-                    /**Ha Storage a szomszedos mezo*/
-                    else if(game.getFields().get(i).GetNeighbours().get(j)==game.getStorages().get(j) && !existing_fields.contains(game.getStorages().get(j).GetID()))
-                    {
-                        System.out.println("ide");
-                        StoragePanel sh=new StoragePanel(game.getStorages().get(j));
-                        mainPanel.AddGraphicObject(sh);
-                        existing_fields.add(game.getStorages().get(j).GetID());
-
-                    }
-                    /**Ha Laboratory a szomszedos mezo*/
-                    else if(game.getFields().get(i).GetNeighbours().get(j)==game.getLabs().get(j) && !existing_fields.contains(game.getLabs().get(j).GetID()))
-                    {
-                        LabPanel sh=new LabPanel(game.getLabs().get(j));
-                        mainPanel.AddGraphicObject(sh);
-                        existing_fields.add(game.getLabs().get(j).GetID());
-
-                    }
-
-
-                }
-            }
-
-        }
 
         /**Shelterek mainpanelhez adása*/
         /*for(int j=0;j<game.getShelters().size();j++)

@@ -28,7 +28,7 @@ public class LabPanel extends JPanel {
         super.paint(g);
 
         Graphics2D g2d = (Graphics2D) g;
-        g2d.setPaint(Color.GREEN);
+        g2d.setPaint(Color.yellow);
         g2d.fillOval(0, 0, panelsize, panelsize);
 
         g2d.setPaint(Color.darkGray);
