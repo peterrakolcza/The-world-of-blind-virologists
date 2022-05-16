@@ -15,7 +15,7 @@ public class Field {
     protected String fieldID;
     protected ArrayList<Virologist> virologists;
     protected ArrayList<Field> neighbours;
-    protected double PosX, posY;
+    protected int PosX, posY;
 
 
     /**
@@ -108,5 +108,18 @@ public class Field {
     public Equipment GetEquipment()
     {
         return null;
+    }
+
+    public void setPos(int x, int y) {
+        this.posY = y;
+        this.PosX = x;
+    }
+
+    public int getx() {
+        return PosX;
+    }
+
+    public int gety() {
+        return posY;
     }
 }

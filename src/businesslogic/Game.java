@@ -107,13 +107,16 @@ public class Game {
         //for(int i=0;i<rand.nextInt(1,5);i++) {
         for(int i=0;i<5;i++) {
             Virologist v = new Virologist(0, glove, 10, 10, 50, i);
-            int fieldnum = rand.nextInt(3);
-            for (int j = 0; j < fields.size(); j++) {
+            int fieldsize = fields.size() - 1;
+            int fieldnum = rand.nextInt(fieldsize);
+            /*for (int j = 0; j < fields.size(); j++) {
                 if (fields.get(j).fieldID == String.valueOf(fieldnum)) {
                     v.setField(fields.get(j));
                 }
 
-            }
+
+            }*/
+            v.setField(fields.get(fieldnum));
             virologists.add(v);
         }
 

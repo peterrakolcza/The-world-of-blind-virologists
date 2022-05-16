@@ -7,12 +7,13 @@ import businesslogic.Storage;
 import javax.swing.*;
 import java.awt.*;
 
-public class StoragePanel extends JPanel {
+public class StoragePanel extends FieldPanel {
 
     private Storage field;
     private int panelsize = 60;
 
     public StoragePanel(Storage f) {
+        super(f);
         this.field = f;
         this.setSize(panelsize, panelsize);
         this.setBackground(new Color(0, 0, 0, 0));

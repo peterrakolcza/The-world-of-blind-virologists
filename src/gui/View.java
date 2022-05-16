@@ -147,6 +147,11 @@ public class View extends JFrame {
         ShelterPanel sph3=new ShelterPanel(game.getShelters().get(2));
         mainPanel.AddGraphicObject(sph3);
 
+        for (int k = 0; k < game.getVirologists().size(); k++) {
+            VirologistPanel vp = new VirologistPanel(game.getVirologists().get(k));
+            mainPanel.AddGraphicVirologist(vp);
+        }
+        
 
         /**Shelterek mainpanelhez adása*/
         /*for(int j=0;j<game.getShelters().size();j++)

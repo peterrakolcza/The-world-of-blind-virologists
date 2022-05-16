@@ -17,7 +17,7 @@ public class VirologistPanel extends JPanel {
     /**
      * panel merete
      */
-    private int panelsize = 16;
+    private int panelsize = 20;
 
     /**
      * beallitja az alap ertekeket
@@ -41,7 +41,7 @@ public class VirologistPanel extends JPanel {
         super.paint(g);
 
         Graphics2D g2d = (Graphics2D)g;
-        g2d.setPaint(Color.yellow);
+        g2d.setPaint(Color.blue);
         g2d.fillOval(0, 0, panelsize, panelsize);
 
         g2d.setPaint(Color.darkGray);
