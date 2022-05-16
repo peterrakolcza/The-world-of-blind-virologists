@@ -1,13 +1,16 @@
 package gui;
 
+import businesslogic.Equipment;
 import businesslogic.Field;
 import businesslogic.Game;
+import businesslogic.Virologist;
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
 public class View extends JFrame {
+
 
     private static final JPanel menuContainer = new JPanel(new FlowLayout(FlowLayout.LEFT,0,0));
 
@@ -34,13 +37,22 @@ public class View extends JFrame {
     /**
      * A jatekbeli vilagot megjelenito panel
      */
-    //private static MainPanel mainPanel;
+    private static MainPanel mainPanel;
 
     /**
      * Az aktualis informaciokat szovegesen megjelenito panel
      */
     private static final JPanel infoPanel = new JPanel();
+    private final EventHandling eventhandling = new EventHandling(this);
 
+    private Virologist selectedVirologist = null;
+    private Field selectedField = null;
+    private Equipment selectedEquipment = null;
+
+     /**
+     * A jatek amit megjelenit
+     */
+    private Game game;
 
 
     /**Pelda a gameben inicializalt adatok eleresere*/
@@ -66,7 +78,7 @@ public class View extends JFrame {
     private static final JLabel clickedObjectLabel = new JLabel("Clicked object: null");
 
     private static final JPanel activeVirologistInfoPanel2 = new JPanel();
-    private static final JLabel activeVirologistNucleotidLabel = new JLabel("Nucleotids: 0");
+    private static final JLabel activeVirologistNucleotidLabel = new JLabel("Nucleotids: 0" );
     private static final JLabel activeVirologistAminoacidsLabel = new JLabel("Aminoacids: 0");
     private static final JLabel activeVirologistAxeLabel = new JLabel("Has Axe: no");
 
@@ -80,19 +92,15 @@ public class View extends JFrame {
     private static final JButton useButton = new JButton("Use");
     private static final JButton skipButton = new JButton("Skip");
 
-    private static final JButton placeGateButton = new JButton("Genetikai kód1");
-    private static final JButton buildGateButton = new JButton("Genetikai kód2");
-    private static final JButton buildRobotButton = new JButton("Genetikai kód3");
+    private static final JButton geneticCode1Button = new JButton("Genetikai kód1");
+    private static final JButton geneticCode2Button = new JButton("Genetikai kód2");
+    private static final JButton geneticCode3Button = new JButton("Genetikai kód3");
 
     private static final Color grayColor = new Color(57, 57, 57);
     private static final Color almostWhite = new Color(230, 230, 230);
     private static final Color green = Color.GREEN;
 
-    /**
-     * A jatek amit megjelenit
-     */
-    private Game game;
-
+   
     /**
      * View konstruktora, inizializalja a megjeleno elemeket
      */
@@ -153,6 +161,14 @@ public class View extends JFrame {
         infoPanelLeft.add(clickedObjectInfoPanel);
 
 
+        newMenuItem.addActionListener(e -> eventhandling.onNewGameClicked());
+        stepButton.addActionListener(e -> eventhandling.onStepClicked());
+        skipButton.addActionListener(e -> eventhandling.onSkipClicked());
+        useButton.addActionListener(e -> eventhandling.onUseClicked());
+        pickUpButton.addActionListener(e -> eventhandling.onPickUpClicked());
+        geneticCode1Button.addActionListener(e -> eventhandling.onGeneticCode1Clicked());
+        geneticCode2Button.addActionListener(e -> eventhandling.onGeneticCode2Clicked());
+        geneticCode3Button.addActionListener(e -> eventhandling.onGeneticCode3Clicked());
         /*drillButton.addActionListener(e -> handlers.DrillClicked());
         mineButton.addActionListener(e -> handlers.MineClicked());
         moveButton.addActionListener(e -> handlers.MoveClicked());
@@ -163,7 +179,7 @@ public class View extends JFrame {
         buildGateButton.addActionListener(e -> handlers.BuildGateClicked());*/
 
         //game.initGame();
-        activeVirologistLabel.setText("Active Virologist: "+game.getVirologists().get(0).getName());
+        activeVirologistLabel.setText("Active Virologist: "+game.getActiveVirologist().getName());
 
         JPanel buttonsFirstRow = new JPanel(new FlowLayout());
         JPanel buttonsSecondRow = new JPanel(new FlowLayout());
@@ -179,9 +195,9 @@ public class View extends JFrame {
         buttonsFirstRow.add(pickUpButton);
         buttonsFirstRow.add(useButton);
         buttonsFirstRow.add(skipButton);
-        buttonsSecondRow.add(placeGateButton);
-        buttonsSecondRow.add(buildGateButton);
-        buttonsSecondRow.add(buildRobotButton);
+        buttonsSecondRow.add(geneticCode1Button);
+        buttonsSecondRow.add(geneticCode2Button);
+        buttonsSecondRow.add(geneticCode3Button);
 
         //mainPanel.setBackground(spaceBlue);
         menuContainer.setBackground(green);
@@ -214,11 +230,62 @@ public class View extends JFrame {
         this.game = game;
     }
 
+    public Virologist getSelectedVirologist() {
+        return selectedVirologist;
+    }
+
+    
+    public void SetSelectedVirologist(Virologist selectedVirologist) {
+        this.selectedVirologist = selectedVirologist;
+    }
+
+    public Field getSelectedField() {
+        return selectedField;
+    }
+
+    
+    public void SetSelectedField(Field selectedField) {
+        this.selectedField = selectedField;
+    }
+
+    public Equipment getSelectedEquipment() {
+        return selectedEquipment;
+    }
+
+    
+    public void SetSelectedEquipment(Equipment selectedEquipment) {
+        this.selectedEquipment = selectedEquipment;
+    }
+
+    /**
+     * Beallitja a kapott ertekre a selectedVirologist-ot
+     */
+    public void VirologistClicked(Virologist v){
+        selectedVirologist = v;
+        //Refresh();
+    }
+
+    public void EquipmentClicked(Equipment e){
+        selectedEquipment = e;
+        //Refresh();
+    }
+
+    public void FieldClicked(Field f){
+        selectedField = f;
+        //Refresh();
+    }
+
+
     /**
      * Leszdi a jatek paneleit a mainPanel-rol
      */
     public void Clear(){
         //mainPanel.RemoveAllGraphicObject();
         //Refresh();
+    }
+
+    public void Refresh() {
+        System.out.println("refresssshhh");
+        activeVirologistNucleotidLabel.setText("Nucleotids: " + game.getActiveVirologist().getNucleo()); //= new JLabel("Nucleotids: " + game.getActiveVirologist().getNucleo());
     }
 }

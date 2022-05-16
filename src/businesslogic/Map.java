@@ -12,16 +12,21 @@ public class Map {
 
     private static Map single_instance = null;
     private int numberOfRNAs = 4;
-    private Field[] fields;
+    private ArrayList<Field> fields;
+    private Game onGoingGame;
 
+
+    public void setGame(Game g) {
+        onGoingGame = g;
+    }
     /**
      * Megnézi, hogy van-e olyan virológus aki összegyűjtötte-e az összes RNA-t, és ezáltal megnyerte a játékot
      * @param knownCodes
      */
     public void checkIfGameIsOver(ArrayList<GeneticCode> knownCodes) {
         if (knownCodes.size() == numberOfRNAs) {
-            Game game = new Game();
-            game.endGame();
+           
+            onGoingGame.endGame();
         }
     }
 }

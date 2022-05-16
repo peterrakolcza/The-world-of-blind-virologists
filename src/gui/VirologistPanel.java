@@ -29,6 +29,10 @@ public class VirologistPanel extends JPanel {
         this.setBackground(new Color(0,0,0,0));
     }
 
+    public Virologist getVirologist() {
+        return virologist;
+    }
+
     /**
      * rajzolo fuggveny felulirasa
      */

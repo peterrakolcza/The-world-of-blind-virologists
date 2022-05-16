@@ -29,6 +29,9 @@ public class Game {
 
     private ArrayList<Storage> storages;
 
+    private Map map;
+
+    private boolean gameIsOn = false;
     public ArrayList<Equipment> getEquipments() {
         return equipments;
     }
@@ -53,10 +56,21 @@ public class Game {
         return virologists;
     }
 
+    public Virologist getActiveVirologist() {
+        return activeVirologist;
+    }
+
     /**Avirologistokat tartalmazza ezek mennek majd panelnek adatnak*/
     private ArrayList<Virologist> virologists;
 
+    private Virologist activeVirologist;
+    /**Az aktiv virologus sorszama a virologusok listaban */
+    private int activeVirologistNumber;
+
     public Game() {
+        gameIsOn = true;
+        map = new Map();
+        map.setGame(this);
         view = new View(this);
         equipments=new ArrayList<Equipment>();
         fields=new ArrayList<Field>();
@@ -75,7 +89,7 @@ public class Game {
 
 
         }*/
-
+        
 
         //Init();
     }
@@ -106,7 +120,8 @@ public class Game {
 
 
 
-        for(int i=0;i<rand.nextInt(1,5);i++) {
+        //for(int i=0;i<rand.nextInt(1,5);i++) {
+        for(int i=0;i<5;i++) {
             Virologist v = new Virologist(0, glove, 10, 10, 50, i);
             int fieldnum = rand.nextInt(3);
             for (int j = 0; j < fields.size(); j++) {
@@ -117,6 +132,10 @@ public class Game {
             }
             virologists.add(v);
         }
+
+        /**Aktiv virolous beallitasa */
+        activeVirologist  = virologists.get(0);
+        activeVirologistNumber = 0;
 
         /**Equipmentek létrehozása a shelterekhez*/
         Cape cape=new Cape("cape");
@@ -153,8 +172,10 @@ public class Game {
 
         for(int i=8;i<11;i++)
         {
-            int num= rand.nextInt(10,20);
-            int num2= rand.nextInt(10,20);
+            /*int num= rand.nextInt(10,20);
+            int num2= rand.nextInt(10,20);*/
+            int num = 15;
+            int num2 = 15;
             Storage st=new Storage(num,num2,i);
             storages.add(st);
 
@@ -199,6 +220,8 @@ public class Game {
      */
     public void startGame() {
         // jatek kezdes
+        initGame();
+        
     }
 
     /**
@@ -206,9 +229,19 @@ public class Game {
      */
     public void endGame() {
         // jatek vege
+        gameIsOn = false;
     }
 
 
+    public void nextVirologist() {
+        if (activeVirologistNumber < virologists.size()-1) {
+            activeVirologistNumber++;
+        }
+        else {
+            activeVirologistNumber = 0;
+        }
+        activeVirologist = virologists.get(activeVirologistNumber);
+    }
 
     public void WriteJsonVirologist(ArrayList<Virologist> virologists, int testnum) throws IOException {
         GsonBuilder builder = new GsonBuilder()
@@ -242,6 +275,7 @@ public class Game {
      */
     public static void main(String[] args) {
         Game game = new Game();
+        game.startGame();
         view.setVisible(true);
     }
 

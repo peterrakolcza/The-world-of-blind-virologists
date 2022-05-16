@@ -15,6 +15,7 @@ public class Field {
     protected String fieldID;
     protected ArrayList<Virologist> virologists;
     protected ArrayList<Field> neighbours;
+    protected double PosX, posY;
 
 
     /**
