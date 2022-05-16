@@ -180,31 +180,75 @@ public class Game {
 
         /**Szomszédos mezők beállítása*/
 
-        /**Field0 szomszedja a Field1*/
+        /**Field0 szomszedjai*/
         fields.get(0).neighbours.add(fields.get(1));
-        /**Field1 szomszedja a Shelter4 es a Field0*/
-        fields.get(1).neighbours.add(shelters.get(0));
-        fields.get(1).neighbours.add(fields.get(0));
-        /**Shelter4 szomszedja a Field1 és a Field2*/
-        shelters.get(0).neighbours.add(fields.get(1));
-        shelters.get(0).neighbours.add(fields.get(2));
+        fields.get(0).neighbours.add(shelters.get(1));
+        /**Shelter5 szomszedjai*/
+        shelters.get(1).neighbours.add(fields.get(0));
+        shelters.get(1).neighbours.add(fields.get(1));
+        shelters.get(1).neighbours.add(storages.get(1));
+        shelters.get(1).neighbours.add(labs.get(2));
 
-        /**A Field2 szomszedja a Shelter4 és a Field3*/
+        /**Field2 szomszedjai*/
+        fields.get(1).neighbours.add(shelters.get(0));
+        fields.get(1).neighbours.add(storages.get(2));
+
+        /**Storage10 szomszédjai*/
+        storages.get(2).neighbours.add(fields.get(1));
+        storages.get(2).neighbours.add(shelters.get(3));
+        storages.get(2).neighbours.add(labs.get(2));
+        storages.get(2).neighbours.add(fields.get(2));
+
+        /**Shelter7 szomszedjai*/
+        shelters.get(3).neighbours.add(storages.get(2));
+        shelters.get(3).neighbours.add(labs.get(1));
+
+        /**Lab13 szomszédjai*/
+        labs.get(1).neighbours.add(shelters.get(3));
+        labs.get(1).neighbours.add(shelters.get(0));
+
+        /**Shelter4 szomszédjai*/
+        shelters.get(0).neighbours.add(labs.get(1));
+
+        /**Storage9 szomszédjai*/
+        storages.get(1).neighbours.add(storages.get(0));
+        storages.get(1).neighbours.add(shelters.get(1));
+
+        /**Storage 8 szomszédjai*/
+        storages.get(0).neighbours.add(storages.get(1));
+        storages.get(0).neighbours.add(labs.get(2));
+
+        /**Lab14 szomszédjai*/
+        labs.get(2).neighbours.add(storages.get(0));
+        labs.get(2).neighbours.add(shelters.get(1));
+        labs.get(2).neighbours.add(fields.get(3));
+        labs.get(2).neighbours.add(storages.get(2));
+
+        /**Field13 szomszédjai*/
+        fields.get(3).neighbours.add(labs.get(2));
+        fields.get(3).neighbours.add(fields.get(2));
+
+        /**Field3 szomszédjai*/
+        fields.get(2).neighbours.add(fields.get(3));
+        fields.get(2).neighbours.add(storages.get(2));
+        fields.get(2).neighbours.add(shelters.get(2));
+        fields.get(2).neighbours.add(labs.get(1));
+
+        /**Shelter6 szomszédjai*/
+        shelters.get(2).neighbours.add(fields.get(2));
+        shelters.get(2).neighbours.add(labs.get(0));
+
+        /**Lab12 szomszédjai*/
+        labs.get(0).neighbours.add(shelters.get(2));
+        labs.get(1).neighbours.add(labs.get(1));
+
+
+
         fields.get(2).neighbours.add(shelters.get(0));
         fields.get(2).neighbours.add(storages.get(0));
         storages.get(1).neighbours.add(fields.get(2));
 
         fields.get(3).neighbours.add(shelters.get(1));
-
-
-        /**lab2.neighbours.add(fields.get(1));
-        lab2.neighbours.add(shelters.get(2));
-
-        lab.neighbours.add(fields.get(0));
-        lab.neighbours.add(storages.get(2));
-        lab.neighbours.add(labs.get(1));
-
-        lab3.neighbours.add(lab2);*/
 
     }
 
