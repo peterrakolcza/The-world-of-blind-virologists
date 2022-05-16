@@ -16,7 +16,6 @@ public class ShelterPanel extends JPanel
         this.field = f;
         this.setSize(panelsize, panelsize);
         this.setBackground(new Color(0,0,0,0));
-
     }
 
     public Field getField() {

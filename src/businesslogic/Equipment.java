@@ -13,7 +13,9 @@ public abstract class Equipment {
      */
     public void taken(Virologist by) {};
 
+    public String getName() {
+        return name;
+    }
+
     public Equipment() {};
-
-
 }

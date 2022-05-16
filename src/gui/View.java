@@ -210,16 +210,7 @@ public class View extends JFrame {
         geneticCode1Button.addActionListener(e -> eventhandling.onGeneticCode1Clicked());
         geneticCode2Button.addActionListener(e -> eventhandling.onGeneticCode2Clicked());
         geneticCode3Button.addActionListener(e -> eventhandling.onGeneticCode3Clicked());
-        /*drillButton.addActionListener(e -> handlers.DrillClicked());
-        mineButton.addActionListener(e -> handlers.MineClicked());
-        moveButton.addActionListener(e -> handlers.MoveClicked());
-        placeMaterialButton.addActionListener(e -> handlers.PlaceMaterialClicked());
-        placeGateButton.addActionListener(e -> handlers.PlaceGateClicked());
-        skipButton.addActionListener(e -> handlers.SkipClicked());
-        buildRobotButton.addActionListener(e -> handlers.BuildRobotClicked());
-        buildGateButton.addActionListener(e -> handlers.BuildGateClicked());*/
 
-        //game.initGame();
         activeVirologistLabel.setText("Active Virologist: "+game.getActiveVirologist().getName());
 
         JPanel buttonsFirstRow = new JPanel(new FlowLayout());

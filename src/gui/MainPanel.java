@@ -12,7 +12,7 @@ public class MainPanel extends JPanel {
     /**
      * A jatek elemeihez tartozo panelek
      */
-    private final static ArrayList<JPanel>  graphicObjects = new ArrayList<>();
+    private final static ArrayList<JPanel> graphicObjects = new ArrayList<>();
     /**
      * A view amihez tartozik
      */
@@ -25,12 +25,11 @@ public class MainPanel extends JPanel {
     /**
      * konstruktor, inicializalja a tagvaltozokat
      */
-    public MainPanel(View view){
+    public MainPanel(View view) {
         this.setLayout(null);
         this.view = view;
         backGround.setSize(new Dimension(1000, 492));
-        backGround.setBackground(new Color(204, 204, 255,255));
-
+        backGround.setBackground(new Color(204, 204, 255, 255));
     }
 
     /**
@@ -38,50 +37,45 @@ public class MainPanel extends JPanel {
      */
     @Override
     public void paint(Graphics g) {
-        g.clearRect(0,0,1000,492);
+        g.clearRect(0, 0, 1000, 492);
         super.paint(g);
-        int ct=0;
+        int ct = 0;
 
-        for(int i = graphicObjects.size()-1; i >= 0; --i){
+        for (int i = graphicObjects.size() - 1; i >= 0; --i) {
             this.add(graphicObjects.get(i));
 
-            int ranY=0;
-            int ranX=0;
-            if(i==0)
-            {
+            int ranY = 0;
+            int ranX = 0;
+            if (i == 0) {
                 ranY = 100;
                 ranX = 100;
             }
-           if(i%2==0 && i!=0 && i<7)
-            {
+            if (i % 2 == 0 && i != 0 && i < 7) {
                 ranY = 100;
-                ranX = 100+i*(100);
+                ranX = 100 + i * (100);
             }
 
-           if(i==7)
-           {
-               ranX=700;
-               ranY=270;
-           }
-
-            if(i%2==1 && i<7){
-                ranY = 100+80;
-                ranX = 100+100*i;
+            if (i == 7) {
+                ranX = 700;
+                ranY = 270;
             }
-            if(i>7 && i%2==0)
-            {
+
+            if (i % 2 == 1 && i < 7) {
+                ranY = 100 + 80;
+                ranX = 100 + 100 * i;
+            }
+            if (i > 7 && i % 2 == 0) {
                 ct++;
-                ranY = 350-80;
-                ranX = 700-ct*100;
+                ranY = 350 - 80;
+                ranX = 700 - ct * 100;
             }
-            if(i>7 && i%2==1)
-            {
+            if (i > 7 && i % 2 == 1) {
                 ct++;
                 ranY = 350;
-                ranX = 700-ct*100;
+                ranX = 700 - ct * 100;
             }
 
-            graphicObjects.get(i).setLocation(ranX, ranY );
+            graphicObjects.get(i).setLocation(ranX, ranY);
 
         }
         this.add(backGround);
@@ -90,31 +84,34 @@ public class MainPanel extends JPanel {
     /**
      * Hozzaad egy uj megjelenitendo elemet
      */
-    public void AddGraphicObject(JPanel object){
+    public void AddGraphicObject(JPanel object) {
         graphicObjects.add(object);
         object.addMouseListener(new GraphicPanelListener(view));
         repaint();
     }
+
     /**
      * Hozzaad egy uj megjelenitendo elemet, a megadott helyre a listaban
      */
-    public void AddGraphicObject(JPanel object, int index){
+    public void AddGraphicObject(JPanel object, int index) {
         graphicObjects.add(index, object);
         object.addMouseListener(new GraphicPanelListener(view));
         repaint();
     }
+
     /**
      * Eltavolitja a megadott elemet megjelenitendo panelek kozul
      */
-    public void RemoveGraphicObject(JPanel object){
+    public void RemoveGraphicObject(JPanel object) {
         this.remove(object);
         graphicObjects.remove(object);
         repaint();
     }
+
     /**
      * Frissiti a szukseges elemeket
      */
-    public void RemoveAllGraphicObject(){
+    public void RemoveAllGraphicObject() {
         this.removeAll();
         graphicObjects.clear();
         repaint();

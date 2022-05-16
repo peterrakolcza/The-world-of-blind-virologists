@@ -70,7 +70,6 @@ public class EventHandling {
 
     public void onNewGameClicked() {
         view.GetGame().startGame();
-       
     }
 
 }

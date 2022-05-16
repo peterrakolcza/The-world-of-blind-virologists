@@ -48,6 +48,5 @@ public class VirologistPanel extends JPanel {
         Font font = new Font("Arial", Font.PLAIN, 10);
         g2d.setFont(font);
         g2d.drawString("V" + virologist.getid(), 2, 12);
-
     }
 }
