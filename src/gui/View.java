@@ -323,10 +323,24 @@ public class View extends JFrame {
         
         activeVirologistLabel.setText("Active Virologist: " + game.getActiveVirologist().getName()); 
         activeVirologistNucleotidLabel.setText("Nucleotids: " + game.getActiveVirologist().getNucleo()); 
-        activeVirologistAminoacidsLabel.setText("Aminoacids: " + game.getActiveVirologist().getAmino()); 
+        activeVirologistAminoacidsLabel.setText("Aminoacids: " + game.getActiveVirologist().getAmino());
+        activeVirologistMaxLabel.setText("Max: "+game.getActiveVirologist().maxMatter());
         activeVirologistAxeLabel.setText("Has Axe: " + game.getActiveVirologist().getAxe()); 
         //clickedObjectInfoPanel.setText("Active Virologist: " + game.getActiveVirologist().getName()); 
         activeVirologistEquipmentLabel.setText("Equipment: " + game.getActiveVirologist().equipmentNames());
+        if(game.getActiveVirologist().HasGloves()==true)
+        {
+            activeVirologistProtectedLabel.setText("Protected: 100%");
+        }
+        else if(game.getActiveVirologist().isProtected()==true)
+        {
+            activeVirologistProtectedLabel.setText("Protected: 82%");
+        }
+        else
+        {
+            activeVirologistProtectedLabel.setText("Prtotected: false");
+        }
+
         activeVirologistLearntCodesLabel.setText("Learnt Codes: " + game.getActiveVirologist().getKnownCodes().size()); 
         activeVirologistBearLabel.setText("Is Bear: " + game.getActiveVirologist().isBear());
         for(int i=0;i<game.getActiveVirologist().getEquipment().size();i++)
@@ -341,9 +355,9 @@ public class View extends JFrame {
             }
             else if(game.getActiveVirologist().getEquipment().get(i).getName()=="ax")
             {
-                activeVirologistAxeLabel.setText("Axe: "+game.getActiveVirologist().getAxe());
+                activeVirologistAxeLabel.setText("Has Axe: "+game.getActiveVirologist().getAxe());
             }
-            else if(game.getActiveVirologist().getEquipment().get(i).getName()=="glove")
+            else if(game.getActiveVirologist().getEquipment().get(i).getName()=="gloves")
             {
                 activeVirologistProtectedLabel.setText("Protected: 100%");
             }

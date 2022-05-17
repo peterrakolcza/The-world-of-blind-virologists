@@ -126,7 +126,7 @@ public class Game {
         Cape cape = new Cape("cape");
         Bag bg = new Bag("bag");
         Axe ax = new Axe("axe");
-        Gloves gl = new Gloves("glove");
+        Gloves gl = new Gloves("gloves");
 
         /** Shelter mezok letrehozasa */
         for (int i = 4; i < 8; i++) {
