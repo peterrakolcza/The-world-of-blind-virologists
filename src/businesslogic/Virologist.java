@@ -31,7 +31,7 @@ public class Virologist {
 
     private Gloves glove;
 
-
+    private boolean bear;
     private boolean hasActiveAx = false;
 
     /** A virologus anyag fajtai es a megengedheto maximum ertekuk */
@@ -51,6 +51,9 @@ public class Virologist {
 
     private ArrayList<Equipment> equipment;
 
+    /**Jeloli, hogy o van-e soron vagy sem */
+    private boolean theirTurn;
+
     /** Parameteres konstruktora a virologusnak */
     public Virologist(double protection, Gloves glove, int aminoacid, int nucleotid, int maxamout,int id) {
 
@@ -68,12 +71,42 @@ public class Virologist {
         knownCodes = new ArrayList<GeneticCode>();
         hasActiveAx = false;
         this.onField=null;
+        theirTurn = false;
+        //equipment.add(glove);
+        bear = false;
+    }
 
+    public void setTurn(boolean value) {
+        theirTurn = value;
+    }
+
+    public boolean getTurn() {
+        return theirTurn;
     }
 
     public boolean GetRooted()
     {
         return rooted;
+    }
+
+    public String equipmentNames() {
+        String equipmentName = "";
+        if (equipment.size()==0)
+            equipmentName = "none";
+        for (int i = 0; i < equipment.size(); i++) {
+            String temp = equipment.get(i).getClass().getSimpleName();
+            equipmentName = equipmentName + ", " + temp;
+        }
+
+        return equipmentName;
+    }
+
+    public boolean isBear() {
+        return bear;
+    }
+
+    public boolean getAxe() {
+        return hasActiveAx;
     }
 
     public String getName()
@@ -277,6 +310,11 @@ public class Virologist {
             }
         }
 
+    }
+
+    public void printStatus() {
+        System.out.println("Virologus: " + activeVirologist );
+        System.out.println("hol: " + this.getField().GetID() );
     }
 
 

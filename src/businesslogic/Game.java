@@ -100,7 +100,7 @@ public class Game {
 
         // for(int i=0;i<rand.nextInt(1,5);i++) {
         for (int i = 0; i < 5; i++) {
-            Virologist v = new Virologist(0, glove, 10, 10, 50, i);
+            Virologist v = new Virologist(0, glove, 10+i, 10+i*2, 50, i);
             int fieldsize = fields.size() - 1;
             int fieldnum = rand.nextInt(fieldsize);
             /*for (int j = 0; j < fields.size(); j++) {
@@ -118,6 +118,7 @@ public class Game {
         activeVirologist = virologists.get(0);
         activeVirologistNumber = 0;
 
+        System.out.println("aktiv virologus: " + activeVirologistNumber);
         /** Equipmentek létrehozása a shelterekhez */
         Cape cape = new Cape("cape");
         Bag bg = new Bag("bag");
@@ -241,6 +242,7 @@ public class Game {
         storages.get(1).neighbours.add(fields.get(2));
 
         fields.get(3).neighbours.add(shelters.get(1));
+        //gameLoop();
     }
 
     /**
@@ -264,14 +266,42 @@ public class Game {
         gameIsOn = false;
     }
 
+    public int getActiveVirNum() {
+        return activeVirologistNumber;
+    }
+
     public void nextVirologist() {
+        activeVirologist.setTurn(false);
+        
         if (activeVirologistNumber < virologists.size() - 1) {
             activeVirologistNumber++;
         } else {
             activeVirologistNumber = 0;
         }
         activeVirologist = virologists.get(activeVirologistNumber);
+        activeVirologist.setTurn(true);
+       
     }
+
+    public Map getMap() {
+        return map;
+    }
+
+    /*public void gameLoop() {
+        while(gameIsOn) {
+            for (int i = 0; i<virologists.size(); i++) {
+                //
+                if(!virologists.get(i).getTurn()) {
+                    //nextVirologist();
+                    if(virologists.get(i).getKnownCodes().size() == map.getNumberOfRNAs())
+                    {
+                        gameIsOn = false;
+                        break;
+                    }
+                }
+            }
+        }
+    }*/
 
     /**
      * Belépési pont
@@ -280,5 +310,8 @@ public class Game {
         Game game = new Game();
         game.startGame();
         view.setVisible(true);
+        //game.gameLoop();
     }
+
+
 }

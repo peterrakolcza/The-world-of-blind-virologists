@@ -29,4 +29,8 @@ public class Map {
             onGoingGame.endGame();
         }
     }
+
+    public int getNumberOfRNAs() {
+        return numberOfRNAs;
+    }
 }

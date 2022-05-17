@@ -313,9 +313,20 @@ public class View extends JFrame {
 
     public void Refresh() {
         System.out.println("refresssshhh");
-        activeVirologistNucleotidLabel.setText("Nucleotids: " + game.getActiveVirologist().getNucleo()); // = new
-                                                                                                         // JLabel("Nucleotids:
-                                                                                                         // " +
-                                                                                                         // game.getActiveVirologist().getNucleo());
+        
+        activeVirologistLabel.setText("Active Virologist: " + game.getActiveVirologist().getName()); 
+        activeVirologistNucleotidLabel.setText("Nucleotids: " + game.getActiveVirologist().getNucleo()); 
+        activeVirologistAminoacidsLabel.setText("Aminoacids: " + game.getActiveVirologist().getAmino()); 
+        activeVirologistAxeLabel.setText("Has Axe: " + game.getActiveVirologist().getAxe()); 
+        //clickedObjectInfoPanel.setText("Active Virologist: " + game.getActiveVirologist().getName()); 
+        activeVirologistEquipmentLabel.setText("Equipment: " + game.getActiveVirologist().equipmentNames()); 
+        activeVirologistLearntCodesLabel.setText("Learnt Codes: " + game.getActiveVirologist().getKnownCodes().size()); 
+        activeVirologistBearLabel.setText("Is Bear: " + game.getActiveVirologist().isBear()); 
+        clickedObjectLabel.setText("Clicked object " + this.getSelectedField().GetID()); 
+    
+        
+        repaint();
     }
+
+    
 }
