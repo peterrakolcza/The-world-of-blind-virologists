@@ -113,7 +113,6 @@ public class Game {
         for (int i = 0; i < 5; i++) {
             Virologist v = new Virologist(0, glove, 10 + i, 10 + i * 2, 50, i);
             int fieldnum = rand.nextInt(fieldsize);
-            System.out.println("fieldnums:"+fieldnum);
             random_fieldnums.add(String.valueOf(fieldnum));
             virologists.add(v);
         }
@@ -152,7 +151,7 @@ public class Game {
             }
 
         }
-        System.out.println("Az equipmentek:" + shelters.get(3).GetEquipment().name);
+
 
         for (int i = 8; i < 11; i++) {
             /*
@@ -164,7 +163,7 @@ public class Game {
             Storage st = new Storage(num, num2, i);
             storages.add(st);
         }
-        System.out.println("A Storage ertekek:" + storages.get(2).getAmino() + storages.get(0).getNucleotid());
+
 
         DanceCode dc = new DanceCode();
         ProtectCode pc = new ProtectCode();
@@ -207,7 +206,7 @@ public class Game {
 
 
                 case "5":
-                    virologists.get(i).setField(fields.get(1));
+                    virologists.get(i).setField(shelters.get(1));
                     System.out.println("5");
                     break;
 

@@ -46,12 +46,9 @@ public class EventHandling {
         else if(activeVir.getField() instanceof Shelter)
         {
             System.out.println("Shelter mező");
-            for(int i=0;i<activeVir.getEquipment().size();i++)
+            if(activeVir.getField().GetEquipment().size()!=0 && !activeVir.getEquipment().contains(activeVir.getField().GetEquipment().get(0)))
             {
-                if(!activeVir.getEquipment().get(i).getName().contains(activeVir.getField().GetEquipment().getName()))
-                {
-                    activeVir.TakeEquipment(activeVir.getField().GetEquipment(),activeVir.getField());
-                }
+                activeVir.TakeEquipment(activeVir.getField().GetEquipment().get(0),activeVir.getField());
             }
         }
         activeVir.printStatus();

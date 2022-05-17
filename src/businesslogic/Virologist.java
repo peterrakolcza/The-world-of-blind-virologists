@@ -94,7 +94,7 @@ public class Virologist {
         if (equipment.size()==0)
             equipmentName = "none";
         for (int i = 0; i < equipment.size(); i++) {
-            String temp = equipment.get(i).getClass().getSimpleName();
+            String temp = equipment.get(i).getName();
             equipmentName = equipmentName + ", " + temp;
         }
 
@@ -248,12 +248,12 @@ public class Virologist {
 
     /** Virologustol el lesz veve egy equipment az inventoryabol */
     public void RemoveEquipment(Equipment e) {
-        this.equipment.remove(e);
+        this.onField.GetEquipment().remove(e);
     }
 
     /** Virologus felveszi az equipmentet a shelter mezorol */
     public void TakeEquipment(Equipment e, Field from) {
-        this.equipment.add(from.GetEquipment());
+        this.equipment.add(from.GetEquipment().get(0));
         from.RemoveEquipment(e);
         e.taken(this);
     }
