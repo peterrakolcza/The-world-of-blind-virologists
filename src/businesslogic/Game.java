@@ -103,6 +103,7 @@ public class Game {
             Virologist v = new Virologist(0, glove, 10+i, 10+i*2, 50, i);
             int fieldsize = fields.size() - 1;
             int fieldnum = rand.nextInt(fieldsize);
+            System.out.print("fieldek szama: " + fields.size());
             /*for (int j = 0; j < fields.size(); j++) {
                 if (fields.get(j).fieldID == String.valueOf(fieldnum)) {
                     v.setField(fields.get(j));
@@ -110,7 +111,13 @@ public class Game {
 
 
             }*/
-            v.setField(fields.get(fieldnum));
+            //v.setField(fields.get(fieldnum));
+            if (i == 0) {
+                v.setField(fields.get(0));
+            }
+            else {
+            v.setField(fields.get(i-1));
+            }
             virologists.add(v);
         }
 

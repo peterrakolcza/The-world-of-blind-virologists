@@ -324,7 +324,13 @@ public class View extends JFrame {
         activeVirologistBearLabel.setText("Is Bear: " + game.getActiveVirologist().isBear()); 
         clickedObjectLabel.setText("Clicked object " + this.getSelectedField().GetID()); 
     
-        
+        //int newX = game.getActiveVirologist().getField().getx();
+        //int newY = game.getActiveVirologist().getField().gety();
+        int newX = game.getActiveVirologist().getField().getx() + 50;
+        int newY = game.getActiveVirologist().getField().gety();
+
+        mainPanel.GetGraphicVirolosits().get(game.getActiveVirNum()).setLocation(newX, newY);
+       mainPanel.repaint();
         repaint();
     }
 

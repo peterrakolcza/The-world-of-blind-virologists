@@ -53,6 +53,7 @@ public class GraphicPanelListener implements MouseListener {
             System.out.print("Equipment clicked");
         }
         view.repaint();
+        view.Refresh();
     }
 
     /**

@@ -91,18 +91,18 @@ public class MainPanel extends JPanel {
         for (int k = 0; k < graphicVirologists.size()-1; k++) {
             //System.out.print("lefutott: " + graphicVirologists.size());
             //System.out.print("lefutott k erteke: " + k);
-            int ranY = (int)graphicObjects.get(k).getLocation().getX();
-            int ranX = (int)graphicObjects.get(k).getLocation().getY();
+            //int ranY = (int)graphicObjects.get(k).getLocation().getX();
+            //int ranX = (int)graphicObjects.get(k).getLocation().getY();
 
             
-            //int ranY = graphicVirologists.get(k).getVirologist().getField().gety();
-            //int ranX = graphicVirologists.get(k).getVirologist().getField().gety();
+            int ranY = graphicVirologists.get(k).getVirologist().getField().gety() + 50;
+            int ranX = graphicVirologists.get(k).getVirologist().getField().gety() + 50;
             
 
             this.add(graphicVirologists.get(k));
 
             graphicVirologists.get(k).setLocation(ranX, ranY);
-            graphicVirologists.get(k).getVirologist().getField();
+            
 
         }
         this.add(backGround);
@@ -149,6 +149,10 @@ public class MainPanel extends JPanel {
      */
     public ArrayList<FieldPanel> GetGraphicObjects() {
         return graphicObjects;
+    }
+
+    public ArrayList<VirologistPanel> GetGraphicVirolosits() {
+        return graphicVirologists;
     }
 
     public void AddGraphicVirologist(VirologistPanel vir){
