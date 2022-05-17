@@ -252,7 +252,7 @@ public class Virologist {
     }
 
     /** Virologus felveszi az equipmentet a shelter mezorol */
-    public void TakeEquipment(Equipment e, Shelter from) {
+    public void TakeEquipment(Equipment e, Field from) {
         this.equipment.add(from.GetEquipment());
         from.RemoveEquipment(e);
         e.taken(this);
@@ -310,6 +310,11 @@ public class Virologist {
             }
         }
 
+    }
+
+    public ArrayList<Equipment> getEquipment()
+    {
+        return this.equipment;
     }
 
     public void printStatus() {

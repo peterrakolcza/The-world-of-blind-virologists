@@ -52,6 +52,22 @@ public class Field {
 
     }
 
+    /**
+     * Eltávólit egy felszerelést
+     * @param e - a felszereles
+     */
+    public void RemoveEquipment(Equipment e) {
+
+    }
+
+    /**
+     * Hozzáad egy felszerelést
+     * @param e - a felszereles
+     */
+    public void AddEquipment(Equipment e) {
+
+    }
+
     public ArrayList<Field> GetNeigh(Field f)
     {
         return neighbours;
