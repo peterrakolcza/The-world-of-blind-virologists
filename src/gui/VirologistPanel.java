@@ -17,7 +17,7 @@ public class VirologistPanel extends JPanel {
     /**
      * panel merete
      */
-    private int panelsize = 20;
+    private int panelsize = 30;
 
     /**
      * beallitja az alap ertekeket
@@ -42,9 +42,10 @@ public class VirologistPanel extends JPanel {
 
         Graphics2D g2d = (Graphics2D)g;
         g2d.setPaint(Color.blue);
-        g2d.fillOval(0, 0, panelsize, panelsize);
+        g2d.fillRect(0,0,panelsize,panelsize);
+        //g2d.fillOval(0, 0, panelsize, panelsize);
 
-        g2d.setPaint(Color.darkGray);
+        g2d.setPaint(Color.white);
         Font font = new Font("Arial", Font.PLAIN, 10);
         g2d.setFont(font);
         g2d.drawString("V" + virologist.getid(), 2, 12);

@@ -36,6 +36,21 @@ public class EventHandling {
     public void onPickUpClicked(){
         System.out.println("Pick up Clicked");
         Virologist activeVir = view.GetGame().getActiveVirologist();
+
+        if(activeVir.getField() instanceof Storage)
+        {
+            System.out.println("Aktiv virologus amino nucleo"+activeVir.getAmino()+" "+activeVir.getNucleo());
+            activeVir.pickUp(activeVir.getField().getAmino(),activeVir.getField().getNucleotid());
+        }
+
+        else if(activeVir.getField() instanceof Shelter)
+        {
+            System.out.println("Shelter mező");
+            if(activeVir.getField().GetEquipment().size()!=0 && !activeVir.getEquipment().contains(activeVir.getField().GetEquipment().get(0)))
+            {
+                activeVir.TakeEquipment(activeVir.getField().GetEquipment().get(0),activeVir.getField());
+            }
+        }
         activeVir.printStatus();
         activeVir.getField().Action();
         view.GetGame().nextVirologist();

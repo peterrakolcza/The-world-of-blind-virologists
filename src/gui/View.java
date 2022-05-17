@@ -319,10 +319,10 @@ public class View extends JFrame {
         activeVirologistAminoacidsLabel.setText("Aminoacids: " + game.getActiveVirologist().getAmino()); 
         activeVirologistAxeLabel.setText("Has Axe: " + game.getActiveVirologist().getAxe()); 
         //clickedObjectInfoPanel.setText("Active Virologist: " + game.getActiveVirologist().getName()); 
-        activeVirologistEquipmentLabel.setText("Equipment: " + game.getActiveVirologist().equipmentNames()); 
+        activeVirologistEquipmentLabel.setText("Equipment: " + game.getActiveVirologist().equipmentNames());
         activeVirologistLearntCodesLabel.setText("Learnt Codes: " + game.getActiveVirologist().getKnownCodes().size()); 
         activeVirologistBearLabel.setText("Is Bear: " + game.getActiveVirologist().isBear()); 
-        clickedObjectLabel.setText("Clicked object " + this.getSelectedField().GetID()); 
+        //clickedObjectLabel.setText("Clicked object " + this.getSelectedField().GetID());
     
         //int newX = game.getActiveVirologist().getField().getx();
         //int newY = game.getActiveVirologist().getField().gety();

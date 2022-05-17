@@ -57,10 +57,10 @@ public class Shelter extends Field {
      * A felszerelesek listaja
      * @return - a felszerelesek listaja
      */
-    public Equipment GetEquipment() {
+    public ArrayList<Equipment> GetEquipment() {
         if (!equipment.isEmpty())
-            return equipment.get(0);
+            return equipment;
         else
-            return null;
+            return equipment;
     }
 }
