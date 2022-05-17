@@ -148,7 +148,7 @@ public class Virologist {
     }
 
     public void setMax(int val) {
-        this.maxAmount = val;
+        this.maxAmount += val;
     }
 
     public void setHasGloves(Gloves input) {

@@ -44,6 +44,7 @@ public class View extends JFrame {
     private Virologist selectedVirologist = null;
     private Field selectedField = null;
     private Equipment selectedEquipment = null;
+    private Bag b;
 
     /**
      * A jatek amit megjelenit
@@ -76,6 +77,8 @@ public class View extends JFrame {
     private static final JLabel activeVirologistNucleotidLabel = new JLabel("Nucleotids: 0");
     private static final JLabel activeVirologistAminoacidsLabel = new JLabel("Aminoacids: 0");
     private static final JLabel activeVirologistAxeLabel = new JLabel("Has Axe: no");
+    private static final JLabel activeVirologistMaxLabel = new JLabel("Max: 50");
+    private static final JLabel activeVirologistProtectedLabel = new JLabel("Protected: false");
 
     private static final JPanel clickedObjectInfoPanel = new JPanel();
     private static final JLabel activeVirologistBearLabel = new JLabel("Is Bear: no");
@@ -181,9 +184,12 @@ public class View extends JFrame {
         activeVirologistInfoPanel2.setLayout(new BoxLayout(activeVirologistInfoPanel2, BoxLayout.PAGE_AXIS));
         activeVirologistNucleotidLabel.setForeground(almostWhite);
         activeVirologistAminoacidsLabel.setForeground(almostWhite);
+        activeVirologistMaxLabel.setForeground(almostWhite);
+        activeVirologistProtectedLabel.setForeground(almostWhite);
         activeVirologistAxeLabel.setForeground(almostWhite);
         activeVirologistInfoPanel2.add(activeVirologistNucleotidLabel);
         activeVirologistInfoPanel2.add(activeVirologistAminoacidsLabel);
+        activeVirologistInfoPanel2.add(activeVirologistMaxLabel);
         activeVirologistInfoPanel2.add(activeVirologistAxeLabel);
         activeVirologistInfoPanel2.setBackground(grayColor);
 
@@ -192,6 +198,7 @@ public class View extends JFrame {
         activeVirologistEquipmentLabel.setForeground(almostWhite);
         activeVirologistLearntCodesLabel.setForeground(almostWhite);
         clickedObjectInfoPanel.add(activeVirologistEquipmentLabel);
+        clickedObjectInfoPanel.add(activeVirologistProtectedLabel);
         clickedObjectInfoPanel.add(activeVirologistLearntCodesLabel);
         clickedObjectInfoPanel.add(activeVirologistBearLabel);
         clickedObjectInfoPanel.setBackground(grayColor);
@@ -321,7 +328,29 @@ public class View extends JFrame {
         //clickedObjectInfoPanel.setText("Active Virologist: " + game.getActiveVirologist().getName()); 
         activeVirologistEquipmentLabel.setText("Equipment: " + game.getActiveVirologist().equipmentNames());
         activeVirologistLearntCodesLabel.setText("Learnt Codes: " + game.getActiveVirologist().getKnownCodes().size()); 
-        activeVirologistBearLabel.setText("Is Bear: " + game.getActiveVirologist().isBear()); 
+        activeVirologistBearLabel.setText("Is Bear: " + game.getActiveVirologist().isBear());
+        for(int i=0;i<game.getActiveVirologist().getEquipment().size();i++)
+        {
+            if(game.getActiveVirologist().getEquipment().get(i).getName()=="bag")
+            {
+                activeVirologistMaxLabel.setText("Max: "+game.getActiveVirologist().maxMatter());
+            }
+            else if(game.getActiveVirologist().getEquipment().get(i).getName()=="cape")
+            {
+                activeVirologistProtectedLabel.setText("Protected: 82%");
+            }
+            else if(game.getActiveVirologist().getEquipment().get(i).getName()=="ax")
+            {
+                activeVirologistAxeLabel.setText("Axe: "+game.getActiveVirologist().getAxe());
+            }
+            else if(game.getActiveVirologist().getEquipment().get(i).getName()=="glove")
+            {
+                activeVirologistProtectedLabel.setText("Protected: 100%");
+            }
+        }
+
+
+
         //clickedObjectLabel.setText("Clicked object " + this.getSelectedField().GetID());
     
         
