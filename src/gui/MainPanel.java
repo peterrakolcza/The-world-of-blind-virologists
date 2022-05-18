@@ -84,24 +84,23 @@ public class MainPanel extends JPanel {
            
 
         }
-        for (int j = 0; j < graphicVirologists.size(); j++) {
+        /*for (int j = 0; j < graphicVirologists.size(); j++) {
             graphicVirologists.get(j).getVirologist().setField(graphicObjects.get(j).getField());
-        }
+        }*/
 
         for (int k = 0; k < graphicVirologists.size()-1; k++) {
-            //System.out.print("lefutott: " + graphicVirologists.size());
-            //System.out.print("lefutott k erteke: " + k);
-            //int ranY = (int)graphicObjects.get(k).getLocation().getX();
-            //int ranX = (int)graphicObjects.get(k).getLocation().getY();
-
+           
+            //int ranY = (int)graphicObjects.get(k).getLocation().getY();
+            //int ranX = (int)graphicObjects.get(k).getLocation().getX();
             
-            int ranY = graphicVirologists.get(k).getVirologist().getField().gety() + 50;
-            int ranX = graphicVirologists.get(k).getVirologist().getField().gety() + 50;
             
-
+            int ranY = (int)graphicVirologists.get(k).getVirologist().getField().gety();
+            int ranX = (int)graphicVirologists.get(k).getVirologist().getField().getx();
+            
             this.add(graphicVirologists.get(k));
 
             graphicVirologists.get(k).setLocation(ranX, ranY);
+            //graphicVirologists.get(k).setLocation(40, 50);
             
 
         }

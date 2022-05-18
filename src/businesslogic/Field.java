@@ -15,6 +15,7 @@ public class Field {
     protected String fieldID;
     protected ArrayList<Virologist> virologists;
     protected ArrayList<Field> neighbours;
+    private ArrayList<Equipment> equipment = new ArrayList<Equipment>();
     protected int PosX, posY;
 
 
@@ -24,6 +25,7 @@ public class Field {
     public Field(int num) {
         virologists = new ArrayList<Virologist>();
         neighbours = new ArrayList<Field>();
+        equipment=new ArrayList<Equipment>();
         this.fieldID="Field"+num;
     }
 
@@ -49,6 +51,22 @@ public class Field {
 
     public void SetNucleo()
     {
+
+    }
+
+    /**
+     * Eltávólit egy felszerelést
+     * @param e - a felszereles
+     */
+    public void RemoveEquipment(Equipment e) {
+        this.equipment.remove(e);
+    }
+
+    /**
+     * Hozzáad egy felszerelést
+     * @param e - a felszereles
+     */
+    public void AddEquipment(Equipment e) {
 
     }
 
@@ -105,10 +123,11 @@ public class Field {
         // action
     }
 
-    public Equipment GetEquipment()
+    public ArrayList<Equipment> GetEquipment()
     {
-        return null;
+        return equipment;
     }
+
 
     public void setPos(int x, int y) {
         this.posY = y;

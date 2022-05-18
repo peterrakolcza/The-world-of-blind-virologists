@@ -319,7 +319,7 @@ public class View extends JFrame {
     }
 
     public void Refresh() {
-        System.out.println("refresssshhh");
+        //System.out.println("refresssshhh");
         
         activeVirologistLabel.setText("Active Virologist: " + game.getActiveVirologist().getName()); 
         activeVirologistNucleotidLabel.setText("Nucleotids: " + game.getActiveVirologist().getNucleo()); 
@@ -363,17 +363,30 @@ public class View extends JFrame {
             }
         }
 
+        mainPanel.repaint();
+        validate();
+         pack();
+         repaint();
 
-
-        //clickedObjectLabel.setText("Clicked object " + this.getSelectedField().GetID());
+        clickedObjectLabel.setText("Clicked object " + this.getSelectedField().GetID());
     
         //int newX = game.getActiveVirologist().getField().getx();
         //int newY = game.getActiveVirologist().getField().gety();
-        int newX = game.getActiveVirologist().getField().getx() + 50;
+        int newX = game.getActiveVirologist().getField().getx();
         int newY = game.getActiveVirologist().getField().gety();
 
-        mainPanel.GetGraphicVirolosits().get(game.getActiveVirNum()).setLocation(newX, newY);
+        //mainPanel.GetGraphicVirolosits().get(game.getActiveVirNum()).setLocation(newX, newY);
+        VirologistPanel temp =  mainPanel.GetGraphicVirolosits().get(game.getActiveVirNum());
+        int temp2 = game.getActiveVirNum();
+        mainPanel.GetGraphicVirolosits().remove(game.getActiveVirNum());
+        //mainPanel.GetGraphicVirolosits().removeAll(mainPanel.GetGraphicVirolosits());
        mainPanel.repaint();
+       validate();
+        //pack();
+        mainPanel.GetGraphicVirolosits().add(temp);
+        //mainPanel.GetGraphicVirolosits().add(temp2, temp);
+        //mainPanel.GetGraphicVirolosits().get(temp2).setLocation(newX, newY);
+        mainPanel.GetGraphicVirolosits().get(  mainPanel.GetGraphicVirolosits().size()-1).setLocation(newX, newY);
         repaint();
     }
 

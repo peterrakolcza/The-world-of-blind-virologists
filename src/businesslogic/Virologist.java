@@ -228,11 +228,13 @@ public class Virologist {
             System.out.println("A virologus mezojenek szomszedjai: "+this.onField.neighbours.get(i).GetID());
             i++;
         }
-        if (!rooted && onField.GetNeigh(this.getField()).contains(next)) {
+        //if (!rooted && onField.GetNeigh(this.getField()).contains(next)) {
+            System.out.println("A virologus innan lepett  " + this.onField.GetID());
             this.onField.GetVirologists().remove(this);
             this.onField = next;
+            System.out.println("IDE:  " + this.onField.GetID());
             next.GetVirologists().add(this);
-        }
+        //}
 
     }
 
